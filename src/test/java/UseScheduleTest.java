@@ -75,34 +75,6 @@ class UseScheduleTest {
     }
 
     @org.junit.jupiter.api.Test
-    void addFacilityRoom() {
-        FacilityLocation facilityLocation = new FacilityLocation();
-        facilityLocation.setFacilityId(1);
-        facilityLocation.setName("Murphy Building");
-        facilityLocation.setAddressNumber(123);
-        facilityLocation.setStreetName("State Street");
-        facilityLocation.setCity("Chicago");
-        facilityLocation.setZipcode(123456);
-
-        FacilityManager facilityManager = new FacilityManager();
-        facilityManager.setManagerId(1);
-        facilityManager.setManagerFirstName("Bob");
-        facilityManager.setManagerLastName("Doe");
-        facilityLocation.setFacilityManager(facilityManager);
-
-        FacilityRoom facilityRoom1 = new FacilityRoom();
-        facilityRoom1.setFacilityRoomId(1);
-        facilityRoom1.setPhoneNumber(123-456-7890);
-        facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
-        facilityRoom1.setFacilityLocation(facilityLocation);
-
-        facilityRooms.add(facilityRoom1);
-
-        assertEquals(true, facilityRooms.contains(facilityRoom1));
-    }
-
-    @org.junit.jupiter.api.Test
     void addUser() {
         FacilityLocation facilityLocation = new FacilityLocation();
         facilityLocation.setFacilityId(1);
@@ -132,7 +104,6 @@ class UseScheduleTest {
         user.setUserLastName("Tom");
         user.setUserId(1);
         user.setUserTitle("Professor");
-        user.setFacilityRoom(facilityRoom1);
 
         listUsers.add(user);
 
@@ -164,12 +135,16 @@ class UseScheduleTest {
         facilityRoom1.setFacilityLocation(facilityLocation);
         facilityLocation.addFacilityRoom(facilityRoom1);
 
+        Type type = new Type();
+        type.setFacilityUseType("Lab");
+        type.setFacilityRoom(facilityRoom1);
+
         User user = new User();
         user.setUserFirstName("Bob");
         user.setUserLastName("Tom");
         user.setUserId(1);
         user.setUserTitle("Professor");
-        user.setFacilityRoom(facilityRoom1);
+        user.setUseType(type);
 
         listUsers.add(user);
         listUsers.remove(user);
