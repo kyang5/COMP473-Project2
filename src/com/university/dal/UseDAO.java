@@ -75,10 +75,10 @@ public class UseDAO {
             String facilityRoomStm = "INSERT INTO FacilityRoom(userID, facilityRoomID, phoneNumber, roomNumber, capacity) VALUES(?, ?, ?, ?, ?)";
             facilityRoomPst = con.prepareStatement(facilityRoomStm);
             facilityRoomPst.setInt(1, user.getUserId());
-            facilityRoomPst.setInt(2, user.getFacilityRoom().getFacilityRoomId());
-            facilityRoomPst.setInt(3, user.getFacilityRoom().getPhoneNumber());
-            facilityRoomPst.setInt(4, user.getFacilityRoom().getRoomNumber());
-            facilityRoomPst.setInt(5, user.getFacilityRoom().getCapacity());
+            facilityRoomPst.setInt(2, user.getUseType().getFacilityRoom().getFacilityRoomId());
+            facilityRoomPst.setInt(3, user.getUseType().getFacilityRoom().getPhoneNumber());
+            facilityRoomPst.setInt(4, user.getUseType().getFacilityRoom().getRoomNumber());
+            facilityRoomPst.setInt(5, user.getUseType().getFacilityRoom().getCapacity());
             facilityRoomPst.executeUpdate();
         } catch (SQLException ex) {
 
