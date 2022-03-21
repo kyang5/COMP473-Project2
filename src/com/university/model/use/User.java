@@ -8,7 +8,7 @@ public class User {
     private String userLastName;
     private int userId;
     private String userTitle;
-    private FacilityRoom facilityRoom;
+    private Type useType;
 
     public String getUserFirstName() {
         return userFirstName;
@@ -42,12 +42,11 @@ public class User {
         this.userTitle = userTitle;
     }
 
-    public FacilityRoom getFacilityRoom() {
-        return facilityRoom;
+    public Type getUseType() {
+        return useType;
     }
 
-    // assign FacilityDetail to user
-    public void setFacilityRoom(FacilityRoom facilityRoom) {
-        this.facilityRoom = facilityRoom;
+    public void setUseType(Type useType) {
+        this.useType = useType;
     }
 }

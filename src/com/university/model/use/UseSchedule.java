@@ -10,7 +10,6 @@ public class UseSchedule {
     private int availableCapacity;
     private int occupancy;
     private double usageRate;
-    private List<FacilityRoom> facilityRooms = new ArrayList<>();
     // date and time entered at the same time in same variable
     private Date useStartDate;
     private Date useEndDate;
@@ -36,20 +35,6 @@ public class UseSchedule {
     public int requestAvailableCapacity(FacilityRoom room) {
         availableCapacity = room.getCapacity() - occupancy;
         return availableCapacity;
-    }
-
-    // get list of facility rooms
-    public List<FacilityRoom> getFacilityRooms() {
-        return facilityRooms;
-    }
-
-    public void setFacilityRooms(List<FacilityRoom> facilityRooms) {
-        this.facilityRooms = facilityRooms;
-    }
-
-    // add facility room to list of facility rooms
-    public void addFacilityRoom(FacilityRoom facilityRoom) {
-        facilityRooms.add(facilityRoom);
     }
 
     public List<User> getListUsers() {
