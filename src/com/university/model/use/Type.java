@@ -1,15 +1,15 @@
 package com.university.model.use;
 
-import com.university.model.facility.FacilityRoom;
-
+import com.university.model.facility.IFacilityRoom;
 import java.util.Date;
 
-public class Type {
+public class Type implements IType{
     private String facilityUseType;
-    private FacilityRoom facilityRoom;
+    private IFacilityRoom facilityRoom;
     private Date useStartDate;
     private Date useEndDate;
     public int occupancy;
+    private boolean inUse;
 
     public String getFacilityUseType() {
         return facilityUseType;
@@ -20,11 +20,11 @@ public class Type {
     }
 
     // assign facility room to use type
-    public FacilityRoom getFacilityRoom() {
+    public IFacilityRoom getFacilityRoom() {
         return facilityRoom;
     }
 
-    public void setFacilityRoom(FacilityRoom facilityRoom) {
+    public void setFacilityRoom(IFacilityRoom facilityRoom) {
         this.facilityRoom = facilityRoom;
     }
 
@@ -52,4 +52,11 @@ public class Type {
         this.occupancy = occupancy;
     }
 
+    public boolean isInUse() {
+        return inUse;
+    }
+
+    public void setInUse(boolean inUse) {
+        this.inUse = inUse;
+    }
 }
