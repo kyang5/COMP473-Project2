@@ -1,22 +1,22 @@
 package com.university.model.facilityManagement;
-import com.university.model.facility.FacilityRoom;
+import com.university.model.facility.IFacilityRoom;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inspection {
+public class Inspection implements IInspection {
     private String inspectionName;
     private int inspectionID;
-    private Inspector inspector;
-    private FacilityRoom facilityRoom;
-    private List<Inspector> inspectorList = new ArrayList<>();
+    private IInspector inspector;
+    private IFacilityRoom facilityRoom;
+    private List<IInspector> inspectorList = new ArrayList<>();
 
 
-    public FacilityRoom getFacilityRoom(){
+    public IFacilityRoom getFacilityRoom(){
         return facilityRoom;
     }
 
-    public void setFacilityRoom(FacilityRoom facilityRoom){
+    public void setFacilityRoom(IFacilityRoom facilityRoom){
         this.facilityRoom = facilityRoom;
     }
 
@@ -35,22 +35,22 @@ public class Inspection {
         this.inspectionID = inspectionID;
     }
 
-    public void addInspector(Inspector inspector){
+    public void addInspector(IInspector inspector){
         inspectorList.add(inspector);
     }
-    public void removeInspector(Inspector inspector){
+    public void removeInspector(IInspector inspector){
         inspectorList.remove(inspector);
     }
 
-    public Inspector getInspector() {
+    public IInspector getInspector() {
         return inspector;
     }
 
-    public void setInspector(Inspector inspector) {
+    public void setInspector(IInspector inspector) {
         this.inspector = inspector;
     }
 
-    public List<Inspector> getInspectionList(){
+    public List<IInspector> getInspectionList(){
         return inspectorList;
     }
 

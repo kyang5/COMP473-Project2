@@ -1,15 +1,16 @@
 package com.university.model.facilityManagement;
 import com.university.model.facility.FacilityRoom;
+import com.university.model.facility.IFacilityRoom;
 
 import java.util.*;
 
-public class MaintenanceSchedule {
+public class MaintenanceSchedule implements ISchedule {
     //private Date maintenanceDate;
     private Date maintenanceStartDate;
     private Date maintenanceEndDate;
     private int scheduleID;
-    private MaintenanceWorker maintenanceWorker;
-    private FacilityRoom facilityRoom;
+    private IWorker maintenanceWorker;
+    private IFacilityRoom facilityRoom;
 
     public int getScheduleID(){
         return scheduleID;
@@ -30,18 +31,18 @@ public class MaintenanceSchedule {
         this.maintenanceEndDate = maintenanceEndDate;
     }
 
-    public MaintenanceWorker getMaintenanceWorker(){
+    public IWorker getMaintenanceWorker(){
         return maintenanceWorker;
     }
-    public void setMaintenanceWorker(MaintenanceWorker maintenanceWorker){
+    public void setMaintenanceWorker(IWorker maintenanceWorker){
         this.maintenanceWorker = maintenanceWorker;
     }
 
-    public FacilityRoom getFacilityRoom() {
+    public IFacilityRoom getFacilityRoom() {
         return facilityRoom;
     }
 
-    public void setFacilityRoom(FacilityRoom facilityRoom) {
+    public void setFacilityRoom(IFacilityRoom facilityRoom) {
         this.facilityRoom = facilityRoom;
     }
 

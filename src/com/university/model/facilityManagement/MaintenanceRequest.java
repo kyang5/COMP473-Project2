@@ -1,16 +1,16 @@
 package com.university.model.facilityManagement;
-import com.university.model.facility.FacilityRoom;
+import com.university.model.facility.IFacilityRoom;
 
 import java.util.*;
 
-public class MaintenanceRequest {
+public class MaintenanceRequest implements IRequest {
     private String requestType;
     private int requestID;
     private Date requestDate;
     private int requestorID;
     private String requestStatus;
     private String problem;
-    private FacilityRoom facilityRoom;
+    private IFacilityRoom facilityRoom;
 
 
     public int getRequestID(){
@@ -49,10 +49,10 @@ public class MaintenanceRequest {
     public void setRequestStatus(String requestStatus){
         this.requestStatus = requestStatus;
     }
-    public FacilityRoom getFacilityRoom(){
+    public IFacilityRoom getFacilityRoom(){
         return facilityRoom;
     }
-    public void setFacilityRoom(FacilityRoom facilityRoom){
+    public void setFacilityRoom(IFacilityRoom facilityRoom){
         this.facilityRoom = facilityRoom;
     }
 

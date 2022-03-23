@@ -1,8 +1,6 @@
 package com.university.model.facilityManagement;
 
-import com.university.model.facility.FacilityManager;
-
-public class Inspector {
+public class Inspector implements IInspector {
     //Variables for information about the inspector
     private String firstName;
     private String lastName;

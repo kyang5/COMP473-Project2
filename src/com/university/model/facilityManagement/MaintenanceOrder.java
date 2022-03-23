@@ -1,15 +1,14 @@
 package com.university.model.facilityManagement;
-import com.university.model.facility.FacilityLocation;
-import com.university.model.facility.FacilityRoom;
+import com.university.model.facility.IFacilityRoom;
 
 import java.util.*;
 
-public class MaintenanceOrder {
+public class MaintenanceOrder implements IOrder {
     private String orderType;
     private int orderID;
     private Date orderDate;
     private double cost;
-    public FacilityRoom facilityRoom;
+    public IFacilityRoom facilityRoom;
 
     public double getCost() {
         return cost;
@@ -44,12 +43,12 @@ public class MaintenanceOrder {
 
     }
 
-    public FacilityRoom getFacilityRoom() {
+    public IFacilityRoom getFacilityRoom() {
         return facilityRoom;
     }
 
 
-    public void setFacilityRoom(FacilityRoom facilityRoom) {
+    public void setFacilityRoom(IFacilityRoom facilityRoom) {
         this.facilityRoom = facilityRoom;
     }
 
