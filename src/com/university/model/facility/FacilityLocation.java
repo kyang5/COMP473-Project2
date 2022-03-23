@@ -3,16 +3,16 @@ package com.university.model.facility;
 import java.util.List;
 import java.util.ArrayList;
 
-public class FacilityLocation {
+public class FacilityLocation implements IFacilityLocation{
     private int facilityId;
     private String name;
     private int addressNumber;
     private String streetName;
     private String city;
     private int zipcode;
-    private FacilityManager facilityManager;
-    private List<FacilityLocation> listFacilities = new ArrayList<>();
-    private List<FacilityRoom> listFacilityRooms = new ArrayList<>();
+    private IFacilityManager facilityManager;
+    private List<IFacilityLocation> listFacilities = new ArrayList<>();
+    private List<IFacilityRoom> listFacilityRooms = new ArrayList<>();
 
     public int getFacilityId() {
         return facilityId;
@@ -63,44 +63,44 @@ public class FacilityLocation {
     }
 
     // same as getFacilityInformation()
-    public List<FacilityLocation> getListFacilities() {
+    public List<IFacilityLocation> getListFacilities() {
         return listFacilities;
     }
 
-    public void setListFacilities(List<FacilityLocation> listFacilities) {
+    public void setListFacilities(List<IFacilityLocation> listFacilities) {
         this.listFacilities = listFacilities;
     }
 
-    public void addFacilityLocation (FacilityLocation facility) {
-        listFacilities.add(facility);
+    public void addFacilityLocation (IFacilityLocation facilityLocation) {
+        listFacilities.add(facilityLocation);
     }
 
-    public void removeFacilityLocation (FacilityLocation facilityLocation) {
+    public void removeFacilityLocation (IFacilityLocation facilityLocation) {
         listFacilities.remove(facilityLocation);
     }
 
-    public List<FacilityRoom> getListFacilityRooms() {
+    public List<IFacilityRoom> getListFacilityRooms() {
         return listFacilityRooms;
     }
 
-    public void setListFacilityRooms(List<FacilityRoom> listFacilityRooms) {
+    public void setListFacilityRooms(List<IFacilityRoom> listFacilityRooms) {
         this.listFacilityRooms = listFacilityRooms;
     }
 
     // same as addFacilityDetail()
-    public void addFacilityRoom (FacilityRoom facilityRoom) {
+    public void addFacilityRoom (IFacilityRoom facilityRoom) {
         listFacilityRooms.add(facilityRoom);
     }
 
-    public void removeFacilityRoom(FacilityRoom facilityRoom) {
+    public void removeFacilityRoom(IFacilityRoom facilityRoom) {
         listFacilityRooms.remove(facilityRoom);
     }
 
-    public FacilityManager getFacilityManager() {
+    public IFacilityManager getFacilityManager() {
         return facilityManager;
     }
 
-    public void setFacilityManager(FacilityManager facilityManager) {
+    public void setFacilityManager(IFacilityManager facilityManager) {
         this.facilityManager = facilityManager;
     }
 
