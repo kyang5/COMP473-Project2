@@ -8,14 +8,11 @@ import java.util.*;
 
 public class UseSchedule {
     private int availableCapacity;
-    private int occupancy;
     private double usageRate;
     // date and time entered at the same time in same variable
-    private Date useStartDate;
-    private Date useEndDate;
     private List<Type> listActualUsage = new ArrayList<>();
     private List<User> listUsers = new ArrayList<>();
-
+    private List<FacilityRoom> listFacilityRoomsInUse = new ArrayList<>();
 
     public boolean isAtCapacity() {
         if (availableCapacity == 0) {
@@ -24,19 +21,12 @@ public class UseSchedule {
             return false;}
     }
 
-    public int getOccupancy() {
-        return occupancy;
-    }
-
-    public void setOccupancy(int occupancy) {
-        this.occupancy = occupancy;
-    }
-
-    public int requestAvailableCapacity(FacilityRoom room) {
-        availableCapacity = room.getCapacity() - occupancy;
+    public int requestAvailableCapacity(FacilityRoom room, Type facilityUseType) {
+        availableCapacity = room.getCapacity() - facilityUseType.getOccupancy();
         return availableCapacity;
     }
 
+    // get list of users, room they are using and what they are using the room for
     public List<User> getListUsers() {
         return listUsers;
     }
@@ -45,12 +35,12 @@ public class UseSchedule {
         this.listUsers = listUsers;
     }
 
-    public void addUser(User user) {
+    public void assignUserToFacilityRoom(User user) {
         listUsers.add(user);
     }
 
     public void vacateFacilityRoom(User user) {
-        // remove user from facility room
+        // remove user and the facility use type from facility room
         listUsers.remove(user);
     }
 
@@ -62,7 +52,7 @@ public class UseSchedule {
         this.listActualUsage = listActualUsage;
     }
 
-    // assignFacilityToUse()
+    // add a facility room and its use type to list of actual usage
     public void addActualUsage (Type facilityUseType) {
         listActualUsage.add(facilityUseType);
     }
@@ -71,11 +61,25 @@ public class UseSchedule {
         listActualUsage.remove(facilityUseType);
     }
 
-    public double calculateUsage(List<FacilityRoom> facilityRooms) {
+    // get a list of all facility rooms that are in use
+    public List<FacilityRoom> getListFacilityRoomsInUse() {
+        return listFacilityRoomsInUse;
+    }
+
+    public void setListFacilityRoomsInUse(List<FacilityRoom> listFacilityRoomsInUse) {
+        this.listFacilityRoomsInUse = listFacilityRoomsInUse;
+    }
+
+    public void addFacilityRoomToListFacilityRoomsInUse(Type useType) {
+        listFacilityRoomsInUse.add(useType.getFacilityRoom());
+    }
+
+    // calculate use rate of a room
+    public double calculateUsage(List<FacilityRoom> listFacilityRoomsInUse) {
         // total number of rooms in a facility out of total number of rooms in a facility being used
         double totalRoomsInUse = 0.0;
         double totalRooms = 0;
-        for(FacilityRoom facilityRoom: facilityRooms) {
+        for(FacilityRoom facilityRoom: listFacilityRoomsInUse) {
             totalRooms += 1;
             if (facilityRoom.isInUse()) {
                 totalRoomsInUse += 1;
@@ -85,27 +89,14 @@ public class UseSchedule {
         return usageRate;
     }
 
-    public Date getUseStartDate() {
-        return useStartDate;
-    }
-
-    public void setUseStartDate(Date useStartDate) {
-        this.useStartDate = useStartDate;
-    }
-
-    public Date getUseEndDate() {
-        return useEndDate;
-    }
-
-    public void setUseEndDate(Date useEndDate) {
-        this.useEndDate = useEndDate;
-    }
-
-    public long timeInterval(Date useStartDate, Date useEndDate) {
-        long end = useEndDate.getTime();
-        long start = useStartDate.getTime();
+    // how long a room is in use
+    public long timeInterval(Type facilityUseType) {
+        long end = facilityUseType.getUseEndDate().getTime();
+        long start = facilityUseType.getUseStartDate().getTime();
         long duration = end - start; //time duration in milliseconds
         return duration;
     }
+
+
 
 }
