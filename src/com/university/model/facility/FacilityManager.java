@@ -3,11 +3,11 @@ package com.university.model.facility;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FacilityManager {
+public class FacilityManager implements IFacilityManager{
     private String managerFirstName;
     private String managerLastName;
     private int managerId;
-    private List<FacilityLocation> listFacilities = new ArrayList<>();
+    private List<IFacilityLocation> listFacilities = new ArrayList<>();
 
     public String getManagerFirstName() {
         return managerFirstName;
@@ -33,19 +33,19 @@ public class FacilityManager {
         this.managerId = managerId;
     }
 
-    public List<FacilityLocation> getListFacilities() {
+    public List<IFacilityLocation> getListFacilities() {
         return listFacilities;
     }
 
-    public void setListFacilities(List<FacilityLocation> listFacilities) {
+    public void setListFacilities(List<IFacilityLocation> listFacilities) {
         this.listFacilities = listFacilities;
     }
 
-    public void addFacilities(FacilityLocation facilityLocation) {
+    public void addFacilities(IFacilityLocation facilityLocation) {
         listFacilities.add(facilityLocation);
     }
 
-    public void removeFacilities(FacilityLocation facilityLocation) {
+    public void removeFacilities(IFacilityLocation facilityLocation) {
         listFacilities.remove(facilityLocation);
     }
 }
