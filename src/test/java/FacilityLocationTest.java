@@ -69,7 +69,6 @@ class FacilityLocationTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facility);
         roomList.add(facilityRoom1);
         assertEquals(true, roomList.contains(facilityRoom1));
@@ -89,7 +88,6 @@ class FacilityLocationTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facility);
         roomList.remove(facilityRoom1);
         assertTrue(roomList.isEmpty());
