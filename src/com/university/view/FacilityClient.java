@@ -32,7 +32,6 @@ public class FacilityClient {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
         facilityLocation.addFacilityRoom(facilityRoom1);
 
@@ -40,7 +39,6 @@ public class FacilityClient {
         facilityRoom2.setFacilityRoomId(2);
         facilityRoom2.setPhoneNumber(123-456-7890);
         facilityRoom2.setCapacity(9);
-        facilityRoom2.setInUse(false);
         facilityRoom2.setFacilityLocation(facilityLocation);
         facilityLocation.addFacilityRoom(facilityRoom2);
         facilityLocation.getListFacilityRooms();

@@ -45,7 +45,6 @@ class InspectionTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123 - 456 - 7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
 
         Inspector inspector = new Inspector();
@@ -85,7 +84,6 @@ class InspectionTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123 - 456 - 7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
 
         Inspector inspector = new Inspector();
