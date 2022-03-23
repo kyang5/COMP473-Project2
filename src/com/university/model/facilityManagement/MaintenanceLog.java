@@ -1,15 +1,16 @@
 package com.university.model.facilityManagement;
 
-import com.university.model.facility.FacilityLocation;
-import com.university.model.facility.FacilityRoom;
+import com.university.model.facility.IFacilityLocation;
+import com.university.model.facility.IFacilityRoom;
+
 import java.util.*;
-public class MaintenanceLog {
+public class MaintenanceLog implements ILog {
     private int inspectionLog;
-    private List<MaintenanceOrder> maintenanceList = new ArrayList<MaintenanceOrder>();
-    private List<MaintenanceSchedule> scheduleList = new ArrayList<>();
-    private List<MaintenanceRequest> requestList = new ArrayList<>();
-    private List<Inspection> inspectionList = new ArrayList<>();
-    private MaintenanceSchedule maintenanceSchedule;
+    private List<IOrder> maintenanceList = new ArrayList<IOrder>();
+    private List<ISchedule> scheduleList = new ArrayList<>();
+    private List<IRequest> requestList = new ArrayList<>();
+    private List<IInspection> inspectionList = new ArrayList<>();
+    private ISchedule maintenanceSchedule;
 
     public int getInspectionLog() {
 
@@ -17,68 +18,68 @@ public class MaintenanceLog {
 
         return inspectionLog;
     }
-    public List<Inspection> getInspectionList() {
+    public List<IInspection> getInspectionList() {
         return inspectionList;
     }
 
-    public void setInspectionList(List<Inspection> inspectionList){
+    public void setInspectionList(List<IInspection> inspectionList){
         this.inspectionList = inspectionList;
     }
-    public void addInspection(Inspection inspection){
+    public void addInspection(IInspection inspection){
         inspectionList.add(inspection);
     }
-    public void removeInspection(Inspection inspection){
+    public void removeInspection(IInspection inspection){
         inspectionList.remove(inspection);
     }
 
-    public void addMaintenanceRequest(MaintenanceRequest maintenanceRequest){
+    public void addMaintenanceRequest(IRequest maintenanceRequest){
         requestList.add(maintenanceRequest);
     }
-    public void cancelMaintenanceRequest(MaintenanceRequest maintenanceRequest){
+    public void cancelMaintenanceRequest(IRequest maintenanceRequest){
         requestList.remove(maintenanceRequest);
     }
-    public void scheduleMaintenance(MaintenanceSchedule maintenanceSchedule){
+    public void scheduleMaintenance(ISchedule maintenanceSchedule){
         scheduleList.add(maintenanceSchedule);
     }
-    public void cancelSchedule(MaintenanceSchedule maintenanceSchedule){
+    public void cancelSchedule(ISchedule maintenanceSchedule){
         scheduleList.remove(maintenanceSchedule);
     }
-    public void addMaintenanceOrder(MaintenanceOrder maintenanceOrder){
+    public void addMaintenanceOrder(IOrder maintenanceOrder){
         maintenanceList.add(maintenanceOrder);
     }
-    public void cancelMaintenanceOrder(MaintenanceOrder maintenanceOrder){
+    public void cancelMaintenanceOrder(IOrder maintenanceOrder){
         maintenanceList.remove(maintenanceOrder);
     }
-    public List<MaintenanceOrder> getMaintenanceOrderList(){
+    public List<IOrder> getMaintenanceOrderList(){
         return maintenanceList;
     }
 
-    public void setMaintenanceList(List<MaintenanceOrder> maintenanceList) {
+    public void setMaintenanceList(List<IOrder> maintenanceList) {
         this.maintenanceList = maintenanceList;
     }
 
-    public List<MaintenanceSchedule> getMaintenanceScheduleList(){
+    public List<ISchedule> getMaintenanceScheduleList(){
         return scheduleList;
     }
 
-    public void setScheduleList(List<MaintenanceSchedule> scheduleList) {
+    public void setScheduleList(List<ISchedule> scheduleList) {
         this.scheduleList = scheduleList;
     }
 
     // same as listFacilityProblems()
-    public List<MaintenanceRequest> getMaintenanceRequestList(){
+    public List<IRequest> getMaintenanceRequestList(){
         return requestList;
     }
 
-    public void setRequestList(List<MaintenanceRequest> requestList) {
+    public void setRequestList(List<IRequest> requestList) {
         this.requestList = requestList;
     }
 
-    public double calcMaintenanceCostForFacility(FacilityLocation facilityLocation){
+    public double calcMaintenanceCostForFacility(IFacilityLocation facilityLocation){
 
         double totalCost = 0.0;
-        for (FacilityRoom room : facilityLocation.getListFacilityRooms()) {
-            for(MaintenanceOrder order: maintenanceList){
+        for (IFacilityRoom room : facilityLocation.getListFacilityRooms()) {
+            for(IOrder order: maintenanceList){
                 if(order.getFacilityRoom().equals(room))
                     totalCost+=order.getCost();
             }
@@ -86,12 +87,12 @@ public class MaintenanceLog {
         return totalCost;
     }
 
-    public double calcProblemRateForFacility(FacilityLocation facilityLocation) {
+    public double calcProblemRateForFacility(IFacilityLocation facilityLocation) {
         double totalProblem = 0;
         double totalRooms = 0;
-        for (FacilityRoom room: facilityLocation.getListFacilityRooms()) {
+        for (IFacilityRoom room: facilityLocation.getListFacilityRooms()) {
             totalRooms += 1;
-            for(MaintenanceRequest request: requestList) {
+            for(IRequest request: requestList) {
                 if(request.getFacilityRoom().equals(room)) {
                     totalProblem +=1;
                 }
