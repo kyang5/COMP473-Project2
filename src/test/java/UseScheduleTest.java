@@ -59,7 +59,6 @@ class UseScheduleTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
 
         Type type = new Type();
@@ -104,7 +103,6 @@ class UseScheduleTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
         facilityLocation.addFacilityRoom(facilityRoom1);
 
@@ -148,7 +146,6 @@ class UseScheduleTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
         facilityLocation.addFacilityRoom(facilityRoom1);
 
@@ -189,12 +186,12 @@ class UseScheduleTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
 
         Type type = new Type();
         type.setFacilityUseType("Lab");
         type.setFacilityRoom(facilityRoom1);
+        type.setInUse(true);
 
         listActualUsage.add(type);
 
@@ -221,7 +218,6 @@ class UseScheduleTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
 
         Type type = new Type();
@@ -255,13 +251,18 @@ class UseScheduleTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
-        facilityRoom1.setInUse(true);
+
         facilityRoom1.setFacilityLocation(facilityLocation);
 
-        UseSchedule useSchedule = new UseSchedule();
-        listFacilityRoomsInUse.add(facilityRoom1);
+        Type type = new Type();
+        type.setFacilityUseType("Lab");
+        type.setFacilityRoom(facilityRoom1);
+        type.setInUse(true);
 
-        double result = useSchedule.calculateUsage(listFacilityRoomsInUse);
+        UseSchedule useSchedule = new UseSchedule();
+        listActualUsage.add(type);
+
+        double result = useSchedule.calculateUsage(facilityLocation);
 
         assertEquals(1.0, result);
     }
