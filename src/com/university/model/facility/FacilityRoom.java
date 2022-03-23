@@ -1,12 +1,12 @@
 package com.university.model.facility;
 
-public class FacilityRoom {
+public class FacilityRoom implements IFacilityRoom{
     private int phoneNumber;
     private int facilityRoomId;
     private int roomNumber;
     private int capacity;
-    private FacilityLocation facilityLocation;
-    private boolean inUse;
+    private IFacilityLocation facilityLocation;
+
 
     public int getPhoneNumber() {
         return phoneNumber;
@@ -20,8 +20,8 @@ public class FacilityRoom {
         return facilityRoomId;
     }
 
-    public void setFacilityRoomId(int facilityId) {
-        this.facilityRoomId = facilityId;
+    public void setFacilityRoomId(int facilityRoomId) {
+        this.facilityRoomId = facilityRoomId;
     }
 
     public int getRoomNumber() {
@@ -40,19 +40,15 @@ public class FacilityRoom {
         this.capacity = capacity;
     }
 
-    public FacilityLocation getFacilityLocation() {
+    public IFacilityLocation getFacilityLocation() {
         return facilityLocation;
     }
 
-    public void setFacilityLocation(FacilityLocation facilityLocation) {
+    public void setFacilityLocation(IFacilityLocation facilityLocation) {
         this.facilityLocation = facilityLocation;
     }
 
-    public boolean isInUse() {
-        return inUse;
-    }
 
-    public void setInUse(boolean inUse) {
-        this.inUse = inUse;
-    }
+
+
 }
