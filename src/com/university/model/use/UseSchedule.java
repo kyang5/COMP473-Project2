@@ -1,18 +1,17 @@
 package com.university.model.use;
 
-import com.university.model.facility.FacilityLocation;
-import com.university.model.facility.FacilityRoom;
+import com.university.model.facility.IFacilityLocation;
+import com.university.model.facility.IFacilityRoom;
 
-import java.time.LocalDateTime;
 import java.util.*;
 
-public class UseSchedule {
+public class UseSchedule implements IUseSchedule{
     private int availableCapacity;
     private double usageRate;
     // date and time entered at the same time in same variable
-    private List<Type> listActualUsage = new ArrayList<>();
-    private List<User> listUsers = new ArrayList<>();
-    private List<FacilityRoom> listFacilityRoomsInUse = new ArrayList<>();
+    private List<IType> listActualUsage = new ArrayList<>();
+    private List<IUser> listUsers = new ArrayList<>();
+    private List<IFacilityRoom> listFacilityRoomsInUse = new ArrayList<>();
 
     public boolean isAtCapacity() {
         if (availableCapacity == 0) {
@@ -21,68 +20,69 @@ public class UseSchedule {
             return false;}
     }
 
-    public int requestAvailableCapacity(FacilityRoom room, Type facilityUseType) {
+    public int requestAvailableCapacity(IFacilityRoom room, IType facilityUseType) {
         availableCapacity = room.getCapacity() - facilityUseType.getOccupancy();
         return availableCapacity;
     }
 
     // get list of users, room they are using and what they are using the room for
-    public List<User> getListUsers() {
+    public List<IUser> getListUsers() {
         return listUsers;
     }
 
-    public void setListUsers(List<User> listUsers) {
+    public void setListUsers(List<IUser> listUsers) {
         this.listUsers = listUsers;
     }
 
-    public void assignUserToFacilityRoom(User user) {
+    public void assignUserToFacilityRoom(IUser user) {
         listUsers.add(user);
     }
 
-    public void vacateFacilityRoom(User user) {
+    public void vacateFacilityRoom(IUser user) {
         // remove user and the facility use type from facility room
         listUsers.remove(user);
     }
 
-    public List<Type> getListActualUsage() {
+    public List<IType> getListActualUsage() {
         return listActualUsage;
     }
 
-    public void setListActualUsage(List<Type> listActualUsage) {
+    public void setListActualUsage(List<IType> listActualUsage) {
         this.listActualUsage = listActualUsage;
     }
 
     // add a facility room and its use type to list of actual usage
-    public void addActualUsage (Type facilityUseType) {
+    public void addActualUsage (IType facilityUseType) {
         listActualUsage.add(facilityUseType);
     }
 
-    public void removeActualUsage(Type facilityUseType) {
+    public void removeActualUsage(IType facilityUseType) {
         listActualUsage.remove(facilityUseType);
     }
 
     // get a list of all facility rooms that are in use
-    public List<FacilityRoom> getListFacilityRoomsInUse() {
+    public List<IFacilityRoom> getListFacilityRoomsInUse() {
         return listFacilityRoomsInUse;
     }
 
-    public void setListFacilityRoomsInUse(List<FacilityRoom> listFacilityRoomsInUse) {
+    public void setListFacilityRoomsInUse(List<IFacilityRoom> listFacilityRoomsInUse) {
         this.listFacilityRoomsInUse = listFacilityRoomsInUse;
     }
 
-    public void addFacilityRoomToListFacilityRoomsInUse(Type useType) {
+    public void addFacilityRoomToListFacilityRoomsInUse(IType useType) {
         listFacilityRoomsInUse.add(useType.getFacilityRoom());
     }
 
     // calculate use rate of a room
-    public double calculateUsage(List<FacilityRoom> listFacilityRoomsInUse) {
+    public double calculateUsage(IFacilityLocation facilityLocation) {
         // total number of rooms in a facility out of total number of rooms in a facility being used
         double totalRoomsInUse = 0.0;
-        double totalRooms = 0;
-        for(FacilityRoom facilityRoom: listFacilityRoomsInUse) {
-            totalRooms += 1;
-            if (facilityRoom.isInUse()) {
-                totalRoomsInUse += 1;
+        double totalRooms = facilityLocation.getListFacilityRooms().size();
+        for (IFacilityRoom room : facilityLocation.getListFacilityRooms()) {
+            for (IType useType : listActualUsage) {
+                if (useType.getFacilityRoom().equals(room)) {
+                    totalRoomsInUse += 1;
+                }
             }
         }
         usageRate = totalRoomsInUse / totalRooms;
@@ -90,13 +90,10 @@ public class UseSchedule {
     }
 
     // how long a room is in use
-    public long timeInterval(Type facilityUseType) {
+    public long timeInterval(IType facilityUseType) {
         long end = facilityUseType.getUseEndDate().getTime();
         long start = facilityUseType.getUseStartDate().getTime();
         long duration = end - start; //time duration in milliseconds
         return duration;
     }
-
-
-
 }
