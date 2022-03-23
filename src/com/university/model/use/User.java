@@ -1,14 +1,12 @@
 package com.university.model.use;
 
-import com.university.model.facility.FacilityRoom;
-
-public class User {
+public class User implements IUser{
 
     private String userFirstName;
     private String userLastName;
     private int userId;
     private String userTitle;
-    private Type useType;
+    private IType useType;
 
     public String getUserFirstName() {
         return userFirstName;
@@ -42,11 +40,11 @@ public class User {
         this.userTitle = userTitle;
     }
 
-    public Type getUseType() {
+    public IType getUseType() {
         return useType;
     }
 
-    public void setUseType(Type useType) {
+    public void setUseType(IType useType) {
         this.useType = useType;
     }
 }
