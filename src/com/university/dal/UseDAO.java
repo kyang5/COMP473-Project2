@@ -1,14 +1,11 @@
 package com.university.dal;
 
 import com.university.model.facility.FacilityRoom;
+import com.university.model.use.IUser;
 import com.university.model.use.Type;
 import com.university.model.use.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class UseDAO {
 
@@ -33,19 +30,23 @@ public class UseDAO {
             userRS.close();
 
             //Get facility room
-            String selectFacilityRoomQuery = "SELECT facilityRoomID, phoneNumber, roomNumber, capacity FROM FacilityRoom WHERE userID = '" + userId + "'";
-            ResultSet facilityRoomRS = st.executeQuery(selectFacilityRoomQuery);
-            FacilityRoom facilityRoom = new FacilityRoom();
+            String selectTypeQuery = "SELECT typeId, facilityUseType, useStartDate, useEndDate, occupancy, isInUse FROM Type WHERE userID = '" + userId + "'";
+            ResultSet typeRS = st.executeQuery(selectTypeQuery);
+            Type type = new Type();
 
-            System.out.println("UserDAO: *************** Query " + selectFacilityRoomQuery);
+            System.out.println("UserDAO: *************** Query " + selectTypeQuery);
 
-            while (facilityRoomRS.next()) {
-                facilityRoom.setFacilityRoomId(facilityRoomRS.getInt("facilityRoomID"));
-                facilityRoom.setPhoneNumber(facilityRoomRS.getInt("phoneNumber"));
-                facilityRoom.setRoomNumber(facilityRoomRS.getInt("roomNumber"));
-                facilityRoom.setCapacity(facilityRoomRS.getInt("capacity"));
+            while (typeRS.next()) {
+                type.setTypeId(typeRS.getInt("typeID"));
+                type.setFacilityUseType(typeRS.getString("facilityUseTYpe"));
+                type.setUseStartDate(typeRS.getDate("useStartDate"));
+                type.setUseEndDate(typeRS.getDate("useEndDate"));
+                type.setOccupancy(typeRS.getInt("occupancy"));
+                type.setInUse(typeRS.getBoolean("isInUse"));
             }
-            facilityRoomRS.close();
+
+            user.setUseType(type);
+            typeRS.close();
             st.close();
 
             return user;
@@ -62,7 +63,7 @@ public class UseDAO {
     public void addUser(User user) {
         Connection con = DBHelper.getConnection();
         PreparedStatement userPst = null;
-        PreparedStatement facilityRoomPst = null;
+        PreparedStatement typePst = null;
 
         try{
             String userStm = "INSERT INTO User(userID, userFirstName, userLastName, userTitle) VALUES(?, ?, ?, ?)";
@@ -72,21 +73,22 @@ public class UseDAO {
             userPst.setString(4, user.getUserTitle());
             userPst.executeUpdate();
 
-            String facilityRoomStm = "INSERT INTO FacilityRoom(userID, facilityRoomID, phoneNumber, roomNumber, capacity) VALUES(?, ?, ?, ?, ?)";
-            facilityRoomPst = con.prepareStatement(facilityRoomStm);
-            facilityRoomPst.setInt(1, user.getUserId());
-            facilityRoomPst.setInt(2, user.getUseType().getFacilityRoom().getFacilityRoomId());
-            facilityRoomPst.setInt(3, user.getUseType().getFacilityRoom().getPhoneNumber());
-            facilityRoomPst.setInt(4, user.getUseType().getFacilityRoom().getRoomNumber());
-            facilityRoomPst.setInt(5, user.getUseType().getFacilityRoom().getCapacity());
-            facilityRoomPst.executeUpdate();
+            String typeStm = "INSERT INTO Type(userID, typeId, facilityUseType, useStartDate, useEndDate, occupancy, isInUse) VALUES(?, ?, ?, ?, ?, ?, ?)";
+            typePst = con.prepareStatement(typeStm);
+            typePst.setInt(1, user.getUserId());
+            typePst.setInt(2, user.getUseType().getTypeId());
+            typePst.setString(3, user.getUseType().getFacilityUseType());
+            typePst.setDate(4, (Date) user.getUseType().getUseStartDate());
+            typePst.setDate(5, (Date) user.getUseType().getUseEndDate());
+            typePst.setBoolean(6, user.getUseType().isInUse());
+            typePst.executeUpdate();
         } catch (SQLException ex) {
 
         } finally {
 
             try {
-                if (facilityRoomPst != null) {
-                    facilityRoomPst.close();
+                if (typePst != null) {
+                    typePst.close();
                     userPst.close();
                 }
                 if (con != null) {
@@ -99,25 +101,31 @@ public class UseDAO {
         }
     }
 
-    public Type getFacilityUseType(String facilityUseType) {
+    public Type getFacilityUseType(int typeId) {
 
         try {
             Statement st = DBHelper.getConnection().createStatement();
-            String selectFacilityUseTypeQuery = "SELECT facilityUseType FROM Type WHERE facilityUseType = '" + facilityUseType + "'";
+            String selectFacilityUseTypeQuery = "SELECT typeId, facilityUseType, useStartDate, useEndDate, occupancy, isInUse FROM Type WHERE typeId = '" + typeId + "'";
 
             ResultSet facilityUseTypeRS = st.executeQuery(selectFacilityUseTypeQuery);
             System.out.println("UseDAO: *************** Query " + selectFacilityUseTypeQuery);
+
             Type type = new Type();
 
-            //TODO check error
             while(facilityUseTypeRS.next()) {
+                type.setTypeId(facilityUseTypeRS.getInt("typeId"));
                 type.setFacilityUseType(facilityUseTypeRS.getString("facilityUseType"));
+                type.setUseStartDate(facilityUseTypeRS.getDate("useStartDate"));
+                type.setUseEndDate(facilityUseTypeRS.getDate("useEndDate"));
+                type.setOccupancy(facilityUseTypeRS.getInt("occupancy"));
+                type.setInUse(facilityUseTypeRS.getBoolean("isInUse"));
             }
             facilityUseTypeRS.close();
 
             //Get facility room
-            String selectFacilityRoomQuery = "SELECT facilityRoomID, phoneNumber, roomNumber, capacity, inUse FROM FacilityRoom WHERE userID = '" + facilityUseType + "'";
+            String selectFacilityRoomQuery = "SELECT facilityRoomID, phoneNumber, roomNumber, capacity FROM FacilityRoom WHERE typeID = '" + typeId + "'";
             ResultSet facilityRoomRS = st.executeQuery(selectFacilityRoomQuery);
+
             FacilityRoom facilityRoom = new FacilityRoom();
 
             System.out.println("UserDAO: *************** Query " + selectFacilityRoomQuery);
@@ -127,7 +135,6 @@ public class UseDAO {
                 facilityRoom.setPhoneNumber(facilityRoomRS.getInt("phoneNumber"));
                 facilityRoom.setRoomNumber(facilityRoomRS.getInt("roomNumber"));
                 facilityRoom.setCapacity(facilityRoomRS.getInt("capacity"));
-                facilityRoom.setInUse(facilityRoomRS.getBoolean("inUse"));
             }
             facilityRoomRS.close();
             st.close();
@@ -143,32 +150,29 @@ public class UseDAO {
         return null;
     }
 
-    public void addFacilityUseType(Type facilityUseType) {
+    public void addType(Type type) {
         Connection con = DBHelper.getConnection();
-        PreparedStatement facilityUseTypePst = null;
-        PreparedStatement facilityRoomPst = null;
+        PreparedStatement typePst = null;
+        PreparedStatement addTypePst = null;
 
         try{
-            String facilityUseTypeStm = "INSERT INTO Type(facilityUseType) VALUES(?)";
-            facilityUseTypePst.setString(1, facilityUseType.getFacilityUseType());
-            facilityUseTypePst.executeUpdate();
-
-            String facilityRoomStm = "INSERT INTO FacilityRoom(facilityUseType, facilityRoomID, phoneNumber, roomNumber, capacity, inUse) VALUES(?, ?, ?, ?, ?, ?)";
-            facilityRoomPst = con.prepareStatement(facilityRoomStm);
-            facilityRoomPst.setString(1, facilityUseType.getFacilityUseType());
-            facilityRoomPst.setInt(2, facilityUseType.getFacilityRoom().getFacilityRoomId());
-            facilityRoomPst.setInt(3, facilityUseType.getFacilityRoom().getPhoneNumber());
-            facilityRoomPst.setInt(4, facilityUseType.getFacilityRoom().getRoomNumber());
-            facilityRoomPst.setInt(5, facilityUseType.getFacilityRoom().getCapacity());
-            facilityRoomPst.executeUpdate();
+            String typeStm = "INSERT INTO Type(typeId, facilityUseType, useStartDate, useEndDate, occupancy, isInUse) VALUES(?, ?, ?, ?, ?, ?, ?)";
+            typePst = con.prepareStatement(typeStm);
+            typePst.setInt(1, type.getTypeId());
+            typePst.setString(2, type.getFacilityUseType());
+            typePst.setDate(3, (Date) type.getUseStartDate());
+            typePst.setDate(4, (Date) type.getUseEndDate());
+            typePst.setInt(5, type.getOccupancy());
+            typePst.setBoolean(6, type.isInUse());
+            typePst.executeUpdate();
         } catch (SQLException ex) {
 
         } finally {
 
             try {
-                if (facilityRoomPst != null) {
-                    facilityRoomPst.close();
-                    facilityUseTypePst.close();
+                if (typePst != null) {
+                    typePst.close();
+                    typePst.close();
                 }
                 if (con != null) {
                     con.close();
