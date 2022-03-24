@@ -4,6 +4,8 @@ import com.university.model.facility.IFacilityRoom;
 import java.util.*;
 
 public interface IType {
+    public int getTypeId();
+    public void setTypeId(int typeId);
     public String getFacilityUseType();
     public void setFacilityUseType(String facilityUseType);
     public IFacilityRoom getFacilityRoom();
