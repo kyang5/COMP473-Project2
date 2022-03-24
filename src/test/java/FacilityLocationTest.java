@@ -1,13 +1,12 @@
 package test.java;
 
+import com.university.model.facility.FacilityLocation;
+import com.university.model.facility.FacilityRoom;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import com.university.model.facility.FacilityLocation;
-import com.university.model.facility.FacilityRoom;
 
 import java.util.ArrayList;
 import java.util.List;
