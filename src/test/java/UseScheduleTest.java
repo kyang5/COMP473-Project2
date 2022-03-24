@@ -3,9 +3,7 @@ package test.java;
 import com.university.model.facility.FacilityLocation;
 import com.university.model.facility.FacilityManager;
 import com.university.model.facility.FacilityRoom;
-import com.university.model.use.Type;
-import com.university.model.use.UseSchedule;
-import com.university.model.use.User;
+import com.university.model.use.*;
 
 import java.util.ArrayList;
 import java.util.Date;
