@@ -11,7 +11,6 @@ public class FacilityLocation implements IFacilityLocation{
     private String city;
     private int zipcode;
     private IFacilityManager facilityManager;
-    private List<IFacilityLocation> listFacilities = new ArrayList<>();
     private List<IFacilityRoom> listFacilityRooms = new ArrayList<>();
 
     public int getFacilityId() {
@@ -62,23 +61,6 @@ public class FacilityLocation implements IFacilityLocation{
         this.zipcode = zipcode;
     }
 
-    // same as getFacilityInformation()
-    public List<IFacilityLocation> getListFacilities() {
-        return listFacilities;
-    }
-
-    public void setListFacilities(List<IFacilityLocation> listFacilities) {
-        this.listFacilities = listFacilities;
-    }
-
-    public void addFacilityLocation (IFacilityLocation facilityLocation) {
-        listFacilities.add(facilityLocation);
-    }
-
-    public void removeFacilityLocation (IFacilityLocation facilityLocation) {
-        listFacilities.remove(facilityLocation);
-    }
-
     public List<IFacilityRoom> getListFacilityRooms() {
         return listFacilityRooms;
     }
@@ -87,7 +69,6 @@ public class FacilityLocation implements IFacilityLocation{
         this.listFacilityRooms = listFacilityRooms;
     }
 
-    // same as addFacilityDetail()
     public void addFacilityRoom (IFacilityRoom facilityRoom) {
         listFacilityRooms.add(facilityRoom);
     }
