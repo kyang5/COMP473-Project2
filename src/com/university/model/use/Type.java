@@ -4,12 +4,21 @@ import com.university.model.facility.IFacilityRoom;
 import java.util.Date;
 
 public class Type implements IType{
+    private int typeId;
     private String facilityUseType;
     private IFacilityRoom facilityRoom;
     private Date useStartDate;
     private Date useEndDate;
     public int occupancy;
     private boolean inUse;
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
 
     public String getFacilityUseType() {
         return facilityUseType;
