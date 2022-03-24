@@ -13,7 +13,7 @@ public class MaintenanceDAO {
 
     }
 
-    public Inspection getInspection(int inspectionID) {
+    public IInspection getInspection(int inspectionID) {
         try {
             //Get Customer
             Statement st = DBHelper.getConnection().createStatement();
@@ -60,7 +60,7 @@ public class MaintenanceDAO {
         return null;
     }
 
-    public void addInspection(Inspection inspect) {
+    public void addInspection(IInspection inspect) {
         Connection con = DBHelper.getConnection();
         PreparedStatement inspectPst = null;
         PreparedStatement inspectorPst = null;
@@ -103,7 +103,7 @@ public class MaintenanceDAO {
         }
     }
 
-    public MaintenanceOrder getMaintenanceOrder(int orderID) {
+    public IOrder getMaintenanceOrder(int orderID) {
 
         try {
 
@@ -138,8 +138,6 @@ public class MaintenanceDAO {
                 room.setCapacity(roomRS.getInt("capacity"));
                 room.setRoomNumber(roomRS.getInt("roomNumber"));
                 room.setPhoneNumber(roomRS.getInt("phoneNumber"));
-                room.setInUse(roomRS.getBoolean("inUse"));
-
             }
             roomRS.close();
             st.close();
@@ -154,7 +152,7 @@ public class MaintenanceDAO {
         return null;
     }
 
-    public void addMaintenanceOrder(MaintenanceOrder maintenanceOrder) {
+    public void addMaintenanceOrder(IOrder maintenanceOrder) {
         Connection con = DBHelper.getConnection();
         PreparedStatement maintOPst = null;
 
@@ -190,7 +188,7 @@ public class MaintenanceDAO {
         }
     }
 
-    public MaintenanceRequest getMaintenanceRequest(int requestID) {
+    public IRequest getMaintenanceRequest(int requestID) {
 
         try {
 
@@ -227,7 +225,6 @@ public class MaintenanceDAO {
                 room.setCapacity(roomRS.getInt("capacity"));
                 room.setRoomNumber(roomRS.getInt("roomNumber"));
                 room.setPhoneNumber(roomRS.getInt("phoneNumber"));
-                room.setInUse(roomRS.getBoolean("inUse"));
 
             }
             roomRS.close();
@@ -242,7 +239,7 @@ public class MaintenanceDAO {
         return null;
     }
 
-    public void addMaintenanceRequest(MaintenanceRequest maintenanceRequest) {
+    public void addMaintenanceRequest(IRequest maintenanceRequest) {
         Connection con = DBHelper.getConnection();
         PreparedStatement requestPst = null;
 
@@ -280,7 +277,7 @@ public class MaintenanceDAO {
         }
     }
 
-    public MaintenanceSchedule getMaintenanceSchedule(int scheduleID) {
+    public ISchedule getMaintenanceSchedule(int scheduleID) {
 
         try {
 
@@ -315,7 +312,6 @@ public class MaintenanceDAO {
                 roomSchedule.setCapacity(roomScheduleRS.getInt("capacity"));
                 roomSchedule.setRoomNumber(roomScheduleRS.getInt("roomNumber"));
                 roomSchedule.setPhoneNumber(roomScheduleRS.getInt("phoneNumber"));
-                roomSchedule.setInUse(roomScheduleRS.getBoolean("inUse"));
 
             }
             roomScheduleRS.close();
@@ -348,7 +344,7 @@ public class MaintenanceDAO {
         return null;
     }
 
-    public void addMaintenanceSchedule(MaintenanceSchedule maintenanceSchedule) {
+    public void addMaintenanceSchedule(ISchedule maintenanceSchedule) {
         Connection con = DBHelper.getConnection();
         PreparedStatement schedulePst = null;
 
