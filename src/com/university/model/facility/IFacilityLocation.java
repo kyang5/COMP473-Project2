@@ -15,12 +15,10 @@ public interface IFacilityLocation {
     public void setCity(String city);
     public int getZipcode();
     public void setZipcode(int zipcode);
-    public List<IFacilityLocation> getListFacilities();
-    public void setListFacilities(List<IFacilityLocation> listFacilities);
-    public void addFacilityLocation(IFacilityLocation facilityLocation);
-    public void removeFacilityLocation(IFacilityLocation facilityLocation);
     public List<IFacilityRoom> getListFacilityRooms();
     public void setListFacilityRooms(List<IFacilityRoom> listFacilityRooms);
+
+    // same as addFacilityDetail()
     public void addFacilityRoom(IFacilityRoom facilityRoom);
     public void removeFacilityRoom(IFacilityRoom facilityRoom);
     public IFacilityManager getFacilityManager();
