@@ -1,8 +1,6 @@
 package com.university.dal;
 
-import com.university.model.facility.FacilityLocation;
-import com.university.model.facility.FacilityManager;
-import com.university.model.facility.FacilityRoom;
+import com.university.model.facility.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
