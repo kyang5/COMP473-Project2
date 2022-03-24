@@ -12,14 +12,14 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MaintenanceLogTest {
-    private List<MaintenanceOrder> maintenanceList = new ArrayList<MaintenanceOrder>();
+    private List<MaintenanceOrder> maintenanceList = new ArrayList<>();
     private List<MaintenanceSchedule> scheduleList = new ArrayList<>();
     private List<MaintenanceRequest> requestList = new ArrayList<>();
     private List<Inspection> inspectionList = new ArrayList<>();
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
-        maintenanceList = new ArrayList<MaintenanceOrder>();
+        maintenanceList = new ArrayList<>();
         scheduleList = new ArrayList<>();
         requestList = new ArrayList<>();
         inspectionList = new ArrayList<>();
