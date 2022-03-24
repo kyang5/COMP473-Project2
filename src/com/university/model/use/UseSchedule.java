@@ -22,7 +22,11 @@ public class UseSchedule implements IUseSchedule{
 
     public int requestAvailableCapacity(IFacilityRoom room, IType facilityUseType) {
         availableCapacity = room.getCapacity() - facilityUseType.getOccupancy();
-        return availableCapacity;
+        if (availableCapacity < 0) {
+            throw new IllegalArgumentException ("Occupancy exceeds room occupancy");
+        } else {
+            return availableCapacity;
+        }
     }
 
     // get list of users, room they are using and what they are using the room for
