@@ -13,45 +13,16 @@ import java.util.List;
 
 class FacilityLocationTest {
 
-    private List<FacilityLocation> locationList;
     private List<FacilityRoom> roomList;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() throws Exception{
-        locationList = new ArrayList<>();
         roomList = new ArrayList<>();
     }
 
     @org.junit.jupiter.api.AfterEach
     void tearDown() throws Exception{
-        locationList = null;
         roomList = null;
-    }
-
-    @org.junit.jupiter.api.Test
-    void addFacilityLocation() {
-        FacilityLocation facility = new FacilityLocation();
-        facility.setFacilityId(1);
-        facility.setName("Murphy Building");
-        facility.setAddressNumber(123);
-        facility.setStreetName("State Street");
-        facility.setCity("Chicago");
-        facility.setZipcode(123456);
-        locationList.add(facility);
-        assertEquals(true, locationList.contains(facility));     }
-
-    @org.junit.jupiter.api.Test
-    void removeFacilityLocation() {
-        FacilityLocation facility = new FacilityLocation();
-        facility.setFacilityId(1);
-        facility.setName("Murphy Building");
-        facility.setAddressNumber(123);
-        facility.setStreetName("State Street");
-        facility.setCity("Chicago");
-        facility.setZipcode(123456);
-        locationList.add(facility);
-        locationList.remove(facility);
-        assertTrue(locationList.isEmpty());
     }
 
     @org.junit.jupiter.api.Test
