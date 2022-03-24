@@ -9,6 +9,7 @@ public interface IFacilityManager {
     public void setManagerLastName(String managerLastName);
     public int getManagerId();
     public void setManagerId(int managerId);
+    // same as listFacilities()
     public List<IFacilityLocation> getListFacilities();
     public void setListFacilities(List<IFacilityLocation> listFacilities);
     public void addFacilities(IFacilityLocation facilityLocation);
