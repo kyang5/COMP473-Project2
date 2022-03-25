@@ -1,7 +1,7 @@
 package com.university.model.facility;
 
 public class FacilityRoom implements IFacilityRoom{
-    private int phoneNumber;
+    private String phoneNumber;
     private int facilityRoomId;
     private int roomNumber;
     private int capacity;
@@ -9,11 +9,11 @@ public class FacilityRoom implements IFacilityRoom{
     private boolean inUse;
 
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
