@@ -1,5 +1,7 @@
 package com.university.model.facility;
 
+import com.university.model.use.IType;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -12,6 +14,7 @@ public class FacilityLocation implements IFacilityLocation{
     private int zipcode;
     private IFacilityManager facilityManager;
     private List<IFacilityRoom> listFacilityRooms = new ArrayList<>();
+    private double facilityUsageRate;
 
     public int getFacilityId() {
         return facilityId;
@@ -83,6 +86,20 @@ public class FacilityLocation implements IFacilityLocation{
 
     public void setFacilityManager(IFacilityManager facilityManager) {
         this.facilityManager = facilityManager;
+    }
+
+    // total number of rooms in a facility out of total number of rooms in a facility being used
+    public double calcFacilityUsage(List<IFacilityRoom> listFacilityRooms) {
+        double totalNumberOfRooms = listFacilityRooms.size();
+        double totalRoomsInUse = 0;
+
+        for (IFacilityRoom room : listFacilityRooms) {
+            if (room.isInUse() == true) {
+                totalRoomsInUse += 1;
+            }
+            facilityUsageRate = totalRoomsInUse / totalNumberOfRooms;
+        }
+        return facilityUsageRate;
     }
 
 }
