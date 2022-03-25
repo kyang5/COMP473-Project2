@@ -9,5 +9,63 @@
 
     <context:component-scan base-package="com.university" />
 
-    <bean id = "" />
+
+    <bean id="facilityLocation" class="com.university.model.facility.FacilityLocation" scope="prototype">
+        <!-- Inject the FacilityRoom List -->
+        <property name="listFacilityRooms">
+            <list/>
+            <!--
+            <list>
+                <ref beans="facilityRoom"/>
+            </list>
+             -->
+        </property>
+        <property name="facilityManager" ref="facilityManager"/>
+    </bean>
+
+    <bean id="facilityRoom" class="com.university.model.facility.FacilityRoom" scope="prototype"/>
+
+    <bean id="facilityManager" class="com.university.model.facility.FacilityManager" scope="prototype">
+        <!-- Inject the FacilityLocation List -->
+        <property name="listFacilities">
+            <list/>
+            <!--
+            <list>
+                <ref beans="facilityLocation"/>
+            </list>
+             -->
+        </property>
+    </bean>
+
+    <bean id="user" class="com.university.model.use.User" scope="prototype">
+        <property name="useType" ref="type"/>
+    </bean>
+
+    <bean id="type" class="com.university.model.use.Type" scope="prototype">
+        <property name="facilityRoom" ref="facilityRoom"/>
+    </bean>
+
+
+
+    <bean id="useSchedule" class="com.university.model.use.UseSchedule" scope="prototype">
+        <!-- Inject the User List -->
+        <property name="listUsers">
+            <list/>
+            <!--
+            <list>
+                <ref beans="user"/>
+            </list>
+             -->
+        </property>
+        <property name="listActualUsage">
+        <!-- Inject the Use Type List -->
+            <list/>
+            <!--
+            <list>
+                <ref beans="type"/>
+            </list>
+             -->
+        </property>
+    </bean>
+
 </beans>
