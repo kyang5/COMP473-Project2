@@ -118,7 +118,7 @@ public class FacilityDAO {
             FacilityRoom facilityRoom = new FacilityRoom();
             while (facilityRoomRS.next()) {
                 facilityRoom.setFacilityRoomId(facilityRoomRS.getInt("facilityRoomID"));
-                facilityRoom.setPhoneNumber(facilityRoomRS.getInt("phoneNumber"));
+                facilityRoom.setPhoneNumber(facilityRoomRS.getString("phoneNumber"));
                 facilityRoom.setRoomNumber(facilityRoomRS.getInt("roomNumber"));
                 facilityRoom.setCapacity(facilityRoomRS.getInt("capacity"));
                 facilityRoom.setInUse(facilityRoomRS.getBoolean("isInUse"));
@@ -165,7 +165,7 @@ public class FacilityDAO {
             String facilityRoomStm = "INSERT INTO FacilityRoom(facilityRoomID, phoneNumber, roomNumber, capacity, isInUse) VALUES(?, ?, ?, ?, ?)";
             facilityRoomPst = con.prepareStatement(facilityRoomStm);
             facilityRoomPst.setInt(1, facilityRoom.getFacilityRoomId());
-            facilityRoomPst.setInt(2, facilityRoom.getPhoneNumber());
+            facilityRoomPst.setString(2, facilityRoom.getPhoneNumber());
             facilityRoomPst.setInt(3, facilityRoom.getRoomNumber());
             facilityRoomPst.setInt(4, facilityRoom.getCapacity());
             facilityRoomPst.setBoolean(5, facilityRoom.isInUse());
