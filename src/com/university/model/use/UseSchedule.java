@@ -11,7 +11,6 @@ public class UseSchedule implements IUseSchedule{
     // date and time entered at the same time in same variable
     private List<IType> listActualUsage = new ArrayList<>();
     private List<IUser> listUsers = new ArrayList<>();
-    private List<IFacilityRoom> listFacilityRoomsInUse = new ArrayList<>();
 
     public boolean isAtCapacity() {
         if (availableCapacity == 0) {
@@ -64,34 +63,6 @@ public class UseSchedule implements IUseSchedule{
         listActualUsage.remove(facilityUseType);
     }
 
-    // get a list of all facility rooms that are in use
-    public List<IFacilityRoom> getListFacilityRoomsInUse() {
-        return listFacilityRoomsInUse;
-    }
-
-    public void setListFacilityRoomsInUse(List<IFacilityRoom> listFacilityRoomsInUse) {
-        this.listFacilityRoomsInUse = listFacilityRoomsInUse;
-    }
-
-    public void addFacilityRoomToListFacilityRoomsInUse(IType useType) {
-        listFacilityRoomsInUse.add(useType.getFacilityRoom());
-    }
-
-    // calculate use rate of a room
-    public double calculateUsage(IFacilityLocation facilityLocation) {
-        // total number of rooms in a facility out of total number of rooms in a facility being used
-        double totalRoomsInUse = 0.0;
-        double totalRooms = facilityLocation.getListFacilityRooms().size();
-        for (IFacilityRoom room : facilityLocation.getListFacilityRooms()) {
-            for (IType useType : listActualUsage) {
-                if (useType.getFacilityRoom().equals(room)) {
-                    totalRoomsInUse += 1;
-                }
-            }
-        }
-        usageRate = totalRoomsInUse / totalRooms;
-        return usageRate;
-    }
 
     // how long a room is in use
     public long timeInterval(IType facilityUseType) {
