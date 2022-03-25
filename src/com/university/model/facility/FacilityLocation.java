@@ -1,7 +1,5 @@
 package com.university.model.facility;
 
-import com.university.model.use.IType;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -94,7 +92,7 @@ public class FacilityLocation implements IFacilityLocation{
         double totalRoomsInUse = 0;
 
         for (IFacilityRoom room : listFacilityRooms) {
-            if (room.isInUse() == true) {
+            if (room.isInUse()) {
                 totalRoomsInUse += 1;
             }
             facilityUsageRate = totalRoomsInUse / totalNumberOfRooms;
