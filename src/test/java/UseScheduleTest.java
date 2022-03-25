@@ -1,8 +1,6 @@
 package test.java;
 
-import com.university.model.facility.FacilityLocation;
-import com.university.model.facility.FacilityManager;
-import com.university.model.facility.FacilityRoom;
+import com.university.model.facility.*;
 import com.university.model.use.*;
 
 import java.util.ArrayList;
@@ -15,24 +13,28 @@ class UseScheduleTest {
     private int availableCapacity;
     private int occupancy;
     private double usageRate;
-    private List<Type> listActualUsage = new ArrayList<>();
+    private List<IType> listActualUsage = new ArrayList<>();
     private List<User> listUsers = new ArrayList<>();
-    private List<FacilityRoom> listFacilityRoomsInUse = new ArrayList<>();
+    private List<IFacilityRoom> listFacilityRooms = new ArrayList<>();
+    private List<IFacilityRoom> listFacilityRoomsInUse = new ArrayList<>();
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         int availableCapacity;
         int occupancy;
         double usageRate;
-        List<Type> listActualUsage = new ArrayList<>();
+        List<IType> listActualUsage = new ArrayList<>();
         List<User> listUsers = new ArrayList<>();
-        List<FacilityRoom> facilityRooms = new ArrayList<>();
+        List<IFacilityRoom> listFacilityRooms = new ArrayList<>();
+        List<IFacilityRoom> listFacilityRoomInUse = new ArrayList<>();
+
     }
 
     @org.junit.jupiter.api.AfterEach
     void tearDown() {
         listActualUsage = null;
         listUsers = null;
+        listFacilityRooms = null;
         listFacilityRoomsInUse = null;
     }
 
@@ -57,6 +59,7 @@ class UseScheduleTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
+        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
 
         Type type = new Type();
@@ -77,6 +80,8 @@ class UseScheduleTest {
         useSchedule.addActualUsage(type);
         useSchedule.assignUserToFacilityRoom(user);
 
+        assertEquals(10, facilityRoom1.getCapacity());
+        assertEquals(10, type.getOccupancy());
         assertEquals(0, useSchedule.requestAvailableCapacity(facilityRoom1, type));
     }
 
@@ -101,6 +106,7 @@ class UseScheduleTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
+        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
         facilityLocation.addFacilityRoom(facilityRoom1);
 
@@ -144,6 +150,7 @@ class UseScheduleTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
+        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
         facilityLocation.addFacilityRoom(facilityRoom1);
 
@@ -184,12 +191,12 @@ class UseScheduleTest {
         facilityRoom1.setFacilityRoomId(1);
         facilityRoom1.setPhoneNumber(123-456-7890);
         facilityRoom1.setCapacity(10);
+        facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facilityLocation);
 
         Type type = new Type();
         type.setFacilityUseType("Lab");
         type.setFacilityRoom(facilityRoom1);
-        type.setInUse(true);
 
         listActualUsage.add(type);
 
@@ -229,43 +236,6 @@ class UseScheduleTest {
     }
 
     @org.junit.jupiter.api.Test
-    void calculateUsage() {
-        FacilityLocation facilityLocation = new FacilityLocation();
-        facilityLocation.setFacilityId(1);
-        facilityLocation.setName("Murphy Building");
-        facilityLocation.setAddressNumber(123);
-        facilityLocation.setStreetName("State Street");
-        facilityLocation.setCity("Chicago");
-        facilityLocation.setZipcode(123456);
-
-        FacilityManager facilityManager = new FacilityManager();
-        facilityManager.setManagerId(1);
-        facilityManager.setManagerFirstName("Bob");
-        facilityManager.setManagerLastName("Doe");
-        facilityLocation.setFacilityManager(facilityManager);
-        facilityManager.addFacilities(facilityLocation);
-
-        FacilityRoom facilityRoom1 = new FacilityRoom();
-        facilityRoom1.setFacilityRoomId(1);
-        facilityRoom1.setPhoneNumber(123-456-7890);
-        facilityRoom1.setCapacity(10);
-
-        facilityRoom1.setFacilityLocation(facilityLocation);
-
-        Type type = new Type();
-        type.setFacilityUseType("Lab");
-        type.setFacilityRoom(facilityRoom1);
-        type.setInUse(true);
-
-        UseSchedule useSchedule = new UseSchedule();
-        listActualUsage.add(type);
-
-        double result = useSchedule.calculateUsage(facilityLocation);
-
-        assertEquals(1.0, result);
-    }
-
-    @org.junit.jupiter.api.Test
     void timeInterval() {
 
         Type type = new Type();
@@ -275,14 +245,10 @@ class UseScheduleTest {
         type.setOccupancy(10);
 
         UseSchedule useSchedule = new UseSchedule();
-        useSchedule.addActualUsage(type);
 
         long result = useSchedule.timeInterval(type);
 
         assertEquals(1801800000, result);
     }
 
-    void addFacilityRoomToListFacilityRoomsInUse() {
-
-    }
 }
