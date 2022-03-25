@@ -16,7 +16,6 @@ public interface IType {
     public void setUseEndDate(Date useEndDate);
     public int getOccupancy();
     public void setOccupancy(int occupancy);
-    public boolean isInUse();
-    public void setInUse(boolean inUse);
+
 
 }
