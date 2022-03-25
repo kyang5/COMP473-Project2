@@ -68,4 +68,62 @@
         </property>
     </bean>
 
+    <bean id="inspection" class="com.university.model.facilityManagement.Inspection" scope="prototype">
+        <property name="inspectorList">
+            <list/>
+            <!--
+             <list>
+                 <ref bean="IInspector" />
+            </list>
+            -->
+        </property>
+        <property name="inspector" ref="inspector" />
+        <property name="facilityRoom" ref="facilityRoom" />
+    </bean>
+    <bean id="maintenanceLog" class="com.university.model.facilityManagement.MaintenanceLog" scope="prototype">
+        <property name="maintenanceList">
+            <list/>
+            <!--
+             <list>
+                 <ref bean="IOrder" />
+            </list>
+            -->
+        </property>
+        <property name="scheduleList">
+            <list/>
+            <!--
+             <list>
+                 <ref bean="ISchedule" />
+            </list>
+            -->
+        </property>
+        <property name="requestList">
+            <list/>
+            <!--
+             <list>
+                 <ref bean="IRequest" />
+            </list>
+            -->
+        </property>
+        <property name="inspectionList">
+            <list/>
+            <!--
+             <list>
+                 <ref bean="IInspection" />
+            </list>
+            -->
+        </property>
+        <property name="maintenanceSchedule" ref="maintenanceSchedule" />
+    </bean>
+    <bean id="maintenanceOrder" class="com.university.model.facilityManagement.MaintenanceOrder" scope="prototype">
+        <property name="facilityRoom" ref="facilityRoom" />
+    </bean>
+    <bean id="maintenanceRequest" class="com.university.model.facilityManagement.MaintenanceRequest" scope="prototype">
+        <property name="facilityRoom" ref="facilityRoom" />
+    </bean>
+    <bean id="maintenanceSchedule" class="com.university.model.facilityManagement.MaintenanceSchedule" scope="prototype">
+        <property name="facilityRoom" ref="facilityRoom" />
+        <property name="maintenanceWorker" ref="maintenanceWorker" />
+    </bean>
+
 </beans>
