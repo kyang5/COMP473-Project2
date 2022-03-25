@@ -23,5 +23,6 @@ public interface IFacilityLocation {
     public void removeFacilityRoom(IFacilityRoom facilityRoom);
     public IFacilityManager getFacilityManager();
     public void setFacilityManager(IFacilityManager facilityManager);
-
+    // same as calcUsageRate()
+    public double calcFacilityUsage(List<IFacilityRoom> listFacilityRooms);
 }
