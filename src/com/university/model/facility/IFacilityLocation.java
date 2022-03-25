@@ -3,26 +3,26 @@ package com.university.model.facility;
 import java.util.List;
 
 public interface IFacilityLocation {
-    public int getFacilityId();
-    public void setFacilityId(int facilityId);
-    public String getName();
-    public void setName(String name);
-    public int getAddressNumber();
-    public void setAddressNumber(int addressNumber);
-    public String getStreetName();
-    public void setStreetName(String streetName);
-    public String getCity();
-    public void setCity(String city);
-    public int getZipcode();
-    public void setZipcode(int zipcode);
-    public List<IFacilityRoom> getListFacilityRooms();
-    public void setListFacilityRooms(List<IFacilityRoom> listFacilityRooms);
+    int getFacilityId();
+    void setFacilityId(int facilityId);
+    String getName();
+    void setName(String name);
+    int getAddressNumber();
+    void setAddressNumber(int addressNumber);
+    String getStreetName();
+    void setStreetName(String streetName);
+    String getCity();
+    void setCity(String city);
+    int getZipcode();
+    void setZipcode(int zipcode);
+    List<IFacilityRoom> getListFacilityRooms();
+    void setListFacilityRooms(List<IFacilityRoom> listFacilityRooms);
 
     // same as addFacilityDetail()
-    public void addFacilityRoom(IFacilityRoom facilityRoom);
-    public void removeFacilityRoom(IFacilityRoom facilityRoom);
-    public IFacilityManager getFacilityManager();
-    public void setFacilityManager(IFacilityManager facilityManager);
+    void addFacilityRoom(IFacilityRoom facilityRoom);
+    void removeFacilityRoom(IFacilityRoom facilityRoom);
+    IFacilityManager getFacilityManager();
+    void setFacilityManager(IFacilityManager facilityManager);
     // same as calcUsageRate()
-    public double calcFacilityUsage(List<IFacilityRoom> listFacilityRooms);
+    double calcFacilityUsage(List<IFacilityRoom> listFacilityRooms);
 }
