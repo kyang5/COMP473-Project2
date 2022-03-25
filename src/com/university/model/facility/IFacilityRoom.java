@@ -11,4 +11,6 @@ public interface IFacilityRoom {
     public void setCapacity(int capacity);
     public IFacilityLocation getFacilityLocation();
     public void setFacilityLocation(IFacilityLocation facilityLocation);
+    public boolean isInUse();
+    public void setInUse(boolean inUse);
 }
