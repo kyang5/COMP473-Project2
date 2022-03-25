@@ -1,8 +1,8 @@
 package com.university.model.facility;
 
 public interface IFacilityRoom {
-    int getPhoneNumber();
-    void setPhoneNumber(int phoneNumber);
+    String getPhoneNumber();
+    void setPhoneNumber(String phoneNumber);
     int getFacilityRoomId();
     void setFacilityRoomId(int facilityRoomId);
     int getRoomNumber();
