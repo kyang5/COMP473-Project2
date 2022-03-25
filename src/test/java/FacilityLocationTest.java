@@ -38,7 +38,7 @@ class FacilityLocationTest {
 
         FacilityRoom facilityRoom1 = new FacilityRoom();
         facilityRoom1.setFacilityRoomId(1);
-        facilityRoom1.setPhoneNumber(123-456-7890);
+        facilityRoom1.setPhoneNumber("123-456-7890");
         facilityRoom1.setCapacity(10);
         facilityRoom1.setFacilityLocation(facility);
         facilityRoom1.setInUse(true);
@@ -58,7 +58,7 @@ class FacilityLocationTest {
 
         FacilityRoom facilityRoom1 = new FacilityRoom();
         facilityRoom1.setFacilityRoomId(1);
-        facilityRoom1.setPhoneNumber(123-456-7890);
+        facilityRoom1.setPhoneNumber("123-456-7890");
         facilityRoom1.setCapacity(10);
         facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facility);
@@ -78,21 +78,21 @@ class FacilityLocationTest {
 
         FacilityRoom facilityRoom1 = new FacilityRoom();
         facilityRoom1.setFacilityRoomId(1);
-        facilityRoom1.setPhoneNumber(123-456-7890);
+        facilityRoom1.setPhoneNumber("123-456-7890");
         facilityRoom1.setCapacity(10);
         facilityRoom1.setInUse(true);
         facilityRoom1.setFacilityLocation(facility);
 
         FacilityRoom facilityRoom2 = new FacilityRoom();
         facilityRoom2.setFacilityRoomId(2);
-        facilityRoom2.setPhoneNumber(123-456-7890);
+        facilityRoom2.setPhoneNumber("123-456-7890");
         facilityRoom2.setCapacity(10);
         facilityRoom2.setInUse(false);
         facilityRoom2.setFacilityLocation(facility);
 
         FacilityRoom facilityRoom3 = new FacilityRoom();
         facilityRoom3.setFacilityRoomId(3);
-        facilityRoom3.setPhoneNumber(123-456-7890);
+        facilityRoom3.setPhoneNumber("123-456-7890");
         facilityRoom3.setCapacity(10);
         facilityRoom3.setInUse(false);
         facilityRoom3.setFacilityLocation(facility);
