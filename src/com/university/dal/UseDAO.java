@@ -30,7 +30,7 @@ public class UseDAO {
             userRS.close();
 
             //Get facility room
-            String selectTypeQuery = "SELECT typeId, facilityUseType, useStartDate, useEndDate, occupancy, isInUse FROM Type WHERE userID = '" + userId + "'";
+            String selectTypeQuery = "SELECT typeId, facilityUseType, useStartDate, useEndDate, occupancy FROM Type WHERE userID = '" + userId + "'";
             ResultSet typeRS = st.executeQuery(selectTypeQuery);
             Type type = new Type();
 
@@ -42,7 +42,6 @@ public class UseDAO {
                 type.setUseStartDate(typeRS.getDate("useStartDate"));
                 type.setUseEndDate(typeRS.getDate("useEndDate"));
                 type.setOccupancy(typeRS.getInt("occupancy"));
-                type.setInUse(typeRS.getBoolean("isInUse"));
             }
 
             user.setUseType(type);
@@ -73,14 +72,13 @@ public class UseDAO {
             userPst.setString(4, user.getUserTitle());
             userPst.executeUpdate();
 
-            String typeStm = "INSERT INTO Type(userID, typeId, facilityUseType, useStartDate, useEndDate, occupancy, isInUse) VALUES(?, ?, ?, ?, ?, ?, ?)";
+            String typeStm = "INSERT INTO Type(userID, typeId, facilityUseType, useStartDate, useEndDate, occupancy) VALUES(?, ?, ?, ?, ?, ?)";
             typePst = con.prepareStatement(typeStm);
             typePst.setInt(1, user.getUserId());
             typePst.setInt(2, user.getUseType().getTypeId());
             typePst.setString(3, user.getUseType().getFacilityUseType());
             typePst.setDate(4, (Date) user.getUseType().getUseStartDate());
             typePst.setDate(5, (Date) user.getUseType().getUseEndDate());
-            typePst.setBoolean(6, user.getUseType().isInUse());
             typePst.executeUpdate();
         } catch (SQLException ex) {
 
@@ -118,7 +116,6 @@ public class UseDAO {
                 type.setUseStartDate(facilityUseTypeRS.getDate("useStartDate"));
                 type.setUseEndDate(facilityUseTypeRS.getDate("useEndDate"));
                 type.setOccupancy(facilityUseTypeRS.getInt("occupancy"));
-                type.setInUse(facilityUseTypeRS.getBoolean("isInUse"));
             }
             facilityUseTypeRS.close();
 
@@ -156,14 +153,13 @@ public class UseDAO {
         PreparedStatement addTypePst = null;
 
         try{
-            String typeStm = "INSERT INTO Type(typeId, facilityUseType, useStartDate, useEndDate, occupancy, isInUse) VALUES(?, ?, ?, ?, ?, ?, ?)";
+            String typeStm = "INSERT INTO Type(typeId, facilityUseType, useStartDate, useEndDate, occupancy) VALUES(?, ?, ?, ?, ?, ?)";
             typePst = con.prepareStatement(typeStm);
             typePst.setInt(1, type.getTypeId());
             typePst.setString(2, type.getFacilityUseType());
             typePst.setDate(3, (Date) type.getUseStartDate());
             typePst.setDate(4, (Date) type.getUseEndDate());
             typePst.setInt(5, type.getOccupancy());
-            typePst.setBoolean(6, type.isInUse());
             typePst.executeUpdate();
         } catch (SQLException ex) {
 
