@@ -6,6 +6,7 @@ public class FacilityRoom implements IFacilityRoom{
     private int roomNumber;
     private int capacity;
     private IFacilityLocation facilityLocation;
+    private boolean inUse;
 
 
     public int getPhoneNumber() {
@@ -48,6 +49,13 @@ public class FacilityRoom implements IFacilityRoom{
         this.facilityLocation = facilityLocation;
     }
 
+    public boolean isInUse() {
+        return inUse;
+    }
+
+    public void setInUse(boolean inUse) {
+        this.inUse = inUse;
+    }
 
 
 
