@@ -2,7 +2,6 @@ package test.java;
 
 import com.university.model.facility.FacilityLocation;
 import com.university.model.facility.FacilityRoom;
-import com.university.model.facility.IFacilityLocation;
 import com.university.model.facility.IFacilityRoom;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,12 +15,10 @@ import java.util.List;
 class FacilityLocationTest {
 
     private List<IFacilityRoom> roomList;
-    private int facilityUsageRate;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() throws Exception{
         roomList = new ArrayList<>();
-        int facilityUsageRate;
     }
 
     @org.junit.jupiter.api.AfterEach
@@ -29,7 +26,7 @@ class FacilityLocationTest {
         roomList = null;
     }
 
-    /*@org.junit.jupiter.api.Test
+    @org.junit.jupiter.api.Test
     void addFacilityRoom() {
         FacilityLocation facility = new FacilityLocation();
         facility.setFacilityId(1);
@@ -46,7 +43,7 @@ class FacilityLocationTest {
         facilityRoom1.setFacilityLocation(facility);
         facilityRoom1.setInUse(true);
         roomList.add(facilityRoom1);
-        assertEquals(true, roomList.contains(facilityRoom1));
+        assertTrue(roomList.contains(facilityRoom1));
     }
 
     @org.junit.jupiter.api.Test
@@ -68,7 +65,6 @@ class FacilityLocationTest {
         roomList.remove(facilityRoom1);
         assertTrue(roomList.isEmpty());
     }
-    */
 
     @org.junit.jupiter.api.Test
     void calcFacilityUsage() {
