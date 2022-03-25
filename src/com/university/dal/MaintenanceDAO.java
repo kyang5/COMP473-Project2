@@ -137,7 +137,7 @@ public class MaintenanceDAO {
                 room.setFacilityRoomId(roomRS.getInt("facilityRoomId"));
                 room.setCapacity(roomRS.getInt("capacity"));
                 room.setRoomNumber(roomRS.getInt("roomNumber"));
-                room.setPhoneNumber(roomRS.getInt("phoneNumber"));
+                room.setPhoneNumber(roomRS.getString("phoneNumber"));
             }
             roomRS.close();
             st.close();
@@ -224,7 +224,7 @@ public class MaintenanceDAO {
                 room.setFacilityRoomId(roomRS.getInt("facilityRoomId"));
                 room.setCapacity(roomRS.getInt("capacity"));
                 room.setRoomNumber(roomRS.getInt("roomNumber"));
-                room.setPhoneNumber(roomRS.getInt("phoneNumber"));
+                room.setPhoneNumber(roomRS.getString("phoneNumber"));
 
             }
             roomRS.close();
@@ -311,7 +311,7 @@ public class MaintenanceDAO {
                 roomSchedule.setFacilityRoomId(roomScheduleRS.getInt("facilityRoomId"));
                 roomSchedule.setCapacity(roomScheduleRS.getInt("capacity"));
                 roomSchedule.setRoomNumber(roomScheduleRS.getInt("roomNumber"));
-                roomSchedule.setPhoneNumber(roomScheduleRS.getInt("phoneNumber"));
+                roomSchedule.setPhoneNumber(roomScheduleRS.getString("phoneNumber"));
 
             }
             roomScheduleRS.close();
