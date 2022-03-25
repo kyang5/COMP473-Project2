@@ -10,23 +10,14 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UseScheduleTest {
-    private int availableCapacity;
-    private int occupancy;
-    private double usageRate;
-    private List<IType> listActualUsage = new ArrayList<>();
+
+    private List<Type> listActualUsage = new ArrayList<>();
     private List<User> listUsers = new ArrayList<>();
-    private List<IFacilityRoom> listFacilityRooms = new ArrayList<>();
-    private List<IFacilityRoom> listFacilityRoomsInUse = new ArrayList<>();
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
-        int availableCapacity;
-        int occupancy;
-        double usageRate;
-        List<IType> listActualUsage = new ArrayList<>();
+        List<Type> listActualUsage = new ArrayList<>();
         List<User> listUsers = new ArrayList<>();
-        List<IFacilityRoom> listFacilityRooms = new ArrayList<>();
-        List<IFacilityRoom> listFacilityRoomInUse = new ArrayList<>();
 
     }
 
@@ -34,8 +25,6 @@ class UseScheduleTest {
     void tearDown() {
         listActualUsage = null;
         listUsers = null;
-        listFacilityRooms = null;
-        listFacilityRoomsInUse = null;
     }
 
     @org.junit.jupiter.api.Test
@@ -126,7 +115,7 @@ class UseScheduleTest {
 
         listUsers.add(user);
 
-        assertEquals(true, listUsers.contains(user));
+        assertTrue(listUsers.contains(user));
     }
 
     @org.junit.jupiter.api.Test
@@ -200,7 +189,7 @@ class UseScheduleTest {
 
         listActualUsage.add(type);
 
-        assertEquals(true, listActualUsage.contains(type));
+        assertTrue(listActualUsage.contains(type));
     }
 
     @org.junit.jupiter.api.Test
