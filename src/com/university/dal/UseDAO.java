@@ -129,7 +129,7 @@ public class UseDAO {
 
             while (facilityRoomRS.next()) {
                 facilityRoom.setFacilityRoomId(facilityRoomRS.getInt("facilityRoomID"));
-                facilityRoom.setPhoneNumber(facilityRoomRS.getInt("phoneNumber"));
+                facilityRoom.setPhoneNumber(facilityRoomRS.getString("phoneNumber"));
                 facilityRoom.setRoomNumber(facilityRoomRS.getInt("roomNumber"));
                 facilityRoom.setCapacity(facilityRoomRS.getInt("capacity"));
             }
