@@ -109,7 +109,7 @@ public class FacilityDAO {
         try {
             //Get facilityRoom
             Statement st = DBHelper.getConnection().createStatement();
-            String selectFacilityRoomQuery = "SELECT facilityRoomID, phoneNumber, roomNumber, capacity FROM FacilityRoom WHERE facilityRoomID = '" + facilityRoomId + "'";
+            String selectFacilityRoomQuery = "SELECT facilityRoomID, phoneNumber, roomNumber, capacity, isInUse FROM FacilityRoom WHERE facilityRoomID = '" + facilityRoomId + "'";
 
             ResultSet facilityRoomRS = st.executeQuery(selectFacilityRoomQuery);
             System.out.println("FacilityDAO: *************** Query " + selectFacilityRoomQuery);
@@ -121,6 +121,7 @@ public class FacilityDAO {
                 facilityRoom.setPhoneNumber(facilityRoomRS.getInt("phoneNumber"));
                 facilityRoom.setRoomNumber(facilityRoomRS.getInt("roomNumber"));
                 facilityRoom.setCapacity(facilityRoomRS.getInt("capacity"));
+                facilityRoom.setInUse(facilityRoomRS.getBoolean("isInUse"));
             }
 
             facilityRoomRS.close();
@@ -161,12 +162,13 @@ public class FacilityDAO {
 
         try {
             //Insert facility room object
-            String facilityRoomStm = "INSERT INTO FacilityRoom(facilityRoomID, phoneNumber, roomNumber, capacity) VALUES(?, ?, ?, ?)";
+            String facilityRoomStm = "INSERT INTO FacilityRoom(facilityRoomID, phoneNumber, roomNumber, capacity, isInUse) VALUES(?, ?, ?, ?, ?)";
             facilityRoomPst = con.prepareStatement(facilityRoomStm);
             facilityRoomPst.setInt(1, facilityRoom.getFacilityRoomId());
             facilityRoomPst.setInt(2, facilityRoom.getPhoneNumber());
             facilityRoomPst.setInt(3, facilityRoom.getRoomNumber());
             facilityRoomPst.setInt(4, facilityRoom.getCapacity());
+            facilityRoomPst.setBoolean(5, facilityRoom.isInUse());
             facilityRoomPst.executeUpdate();
 
             //Insert facility location object
