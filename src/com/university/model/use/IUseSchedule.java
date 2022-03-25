@@ -16,9 +16,5 @@ public interface IUseSchedule {
     public void setListActualUsage(List<IType> listActualUsage);
     public void addActualUsage(IType facilityUseType);
     public void removeActualUsage(IType facilityUseType);
-    public List<IFacilityRoom>  getListFacilityRoomsInUse();
-    public void setListFacilityRoomsInUse(List<IFacilityRoom> listFacilityRoomsInUse);
-    public void addFacilityRoomToListFacilityRoomsInUse(IType useType);
-    public double calculateUsage(IFacilityLocation facilityLocation);
     public long timeInterval(IType facilityUseType);
 }
