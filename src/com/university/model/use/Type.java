@@ -1,5 +1,6 @@
 package com.university.model.use;
 
+import com.university.model.facility.IFacilityLocation;
 import com.university.model.facility.IFacilityRoom;
 import java.util.Date;
 
@@ -10,7 +11,6 @@ public class Type implements IType{
     private Date useStartDate;
     private Date useEndDate;
     public int occupancy;
-    private boolean inUse;
 
     public int getTypeId() {
         return typeId;
@@ -28,7 +28,7 @@ public class Type implements IType{
         this.facilityUseType = facilityUseType;
     }
 
-    // assign facility room to use type
+    // assign facility room to use
     public IFacilityRoom getFacilityRoom() {
         return facilityRoom;
     }
@@ -61,11 +61,4 @@ public class Type implements IType{
         this.occupancy = occupancy;
     }
 
-    public boolean isInUse() {
-        return inUse;
-    }
-
-    public void setInUse(boolean inUse) {
-        this.inUse = inUse;
-    }
 }
