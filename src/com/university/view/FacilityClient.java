@@ -22,7 +22,7 @@ public class FacilityClient {
 
 
 
-                // Facility instantiation
+        // Facility instantiation
         FacilityLocation facility1 = (FacilityLocation) context.getBean("facilityLocation");
 
         facility1.setFacilityId(1);
@@ -187,70 +187,129 @@ public class FacilityClient {
 
         }
 
+        //First instatiation of inspection
+
         Inspection inspection1 = (Inspection) context.getBean("inspection");
+        //set insepction values.
         inspection1.setInspectionID(1234);
         inspection1.setInspectionName("day1");
 
-
+        //Second instation of inspection objects
         Inspection inspection2 = (Inspection) context.getBean("inspection");
+        //Set inspection values.
         inspection2.setInspectionID(5678);
         inspection2.setInspectionName("day1");
 
+        //first instance of inspection objects
         Inspector inspector1 = (Inspector) context.getBean("inspector");
+        //Set properties.
         inspector1.setInspectorID(1234);
         inspector1.setInspectorTitle("Mister");
         inspector1.setInspectorFirstName("James");
         inspector1.setInspectorLastName("Earl");
+        //Second instance.
+        Inspector inspector2 = (Inspector) context.getBean("inspector");
+        //set properties.
+        inspector2.setInspectorID(5678);
+        inspector2.setInspectorTitle("Missus");
+        inspector2.setInspectorFirstName("Jesse");
+        inspector2.setInspectorLastName("Andrews");
+
+        //First set of lists.
 
         MaintenanceLog log1 = (MaintenanceLog) context.getBean("maintenanceLog");
+        MaintenanceLog log2 = (MaintenanceLog) context.getBean("maintenanceLog");
 
+        //Second Lists
         MaintenanceOrder order1 = (MaintenanceOrder) context.getBean("maintenanceOrder");
-        //FacilityRoom?
+        MaintenanceOrder order2 = (MaintenanceOrder) context.getBean("maintenanceOrder");
+
+        //Setters.
         order1.setOrderID(123456);
         order1.setOrderDate(new Date(2020, 12, 1, 13, 45));
         order1.setCost(0.1);
         order1.setOrderType("new");
 
+        order2.setOrderID(78910);
+        order2.setOrderDate(new Date(2020, 12, 1, 13, 46));
+        order2.setCost(0.2);
+        order2.setOrderType("old");
+
+        //First and Second requests.
+
 
         MaintenanceRequest request1 = (MaintenanceRequest) context.getBean("maintenanceRequest");
-        //Object
+        MaintenanceRequest request2 = (MaintenanceRequest) context.getBean("maintenanceRequest");
+
+        //Setters.
 
         request1.setRequestID(1234);
         request1.setProblem("broken");
         request1.setRequestDate(new Date(2020, 12, 1, 13, 45));
         request1.setRequestStatus("broken");
-        request1.setRequestorID(12345);
         request1.setRequestType("fix");
 
+        request2.setRequestID(5678);
+        request2.setProblem("leak");
+        request2.setRequestDate(new Date(2020, 12, 1, 13, 46));
+        request2.setRequestStatus("broken");
+        request2.setRequestType("fix");
+
+        //Objects for schedules.
+
         MaintenanceSchedule schedule1 = (MaintenanceSchedule) context.getBean("maintenanceSchedule");
+        MaintenanceSchedule schedule2 = (MaintenanceSchedule) context.getBean("maintenanceSchedule");
+
+        //Setters.
 
         schedule1.setScheduleID(1234);
         schedule1.setMaintenanceEndDate(new Date(2020, 12, 1, 13, 45));
-
         schedule1.setMaintenanceStartDate(new Date(2020, 12, 1, 13, 45));
 
+        schedule2.setScheduleID(5678);
+        schedule2.setMaintenanceEndDate(new Date(2020, 12, 1, 13, 46));
+        schedule2.setMaintenanceStartDate(new Date(2020, 12, 1, 13, 45));
+
+        //Creates objects for workers and sets their properties.
+
         MaintenanceWorker worker1 = (MaintenanceWorker) context.getBean("maintenanceWorker");
+        MaintenanceWorker worker2 = (MaintenanceWorker) context.getBean("maintenanceWorker");
         worker1.setMaintFirstName("earl");
         worker1.setMaintWorkerID(1234);
         worker1.setMaintLastName("Young");
         worker1.setMaintTitle("worker");
 
+        worker2.setMaintFirstName("Pearl");
+        worker2.setMaintWorkerID(5678);
+        worker2.setMaintLastName("Old");
+        worker2.setMaintTitle("repairer");
+
+        //The following sets respective values and adds objects to lists.
         schedule1.setMaintenanceWorker(worker1);
+        schedule2.setMaintenanceWorker(worker2);
         request1.setFacilityRoom(room1);
+        request2.setFacilityRoom(room2);
         order1.setFacilityRoom(room1);
+        order2.setFacilityRoom(room2);
         inspection1.setFacilityRoom(room1);
-        inspection2.setFacilityRoom(room1);
+        inspection2.setFacilityRoom(room2);
         schedule1.setFacilityRoom(room1);
+        schedule2.setFacilityRoom(room2);
 
         inspection1.addInspector(inspector1);
-        inspection2.addInspector(inspector1);
+        inspection1.addInspector(inspector2);
         log1.addInspection(inspection1);
         log1.addMaintenanceRequest(request1);
         log1.addMaintenanceOrder(order1);
         log1.scheduleMaintenance(schedule1);
+        log1.addInspection(inspection2);
+        log1.addMaintenanceRequest(request2);
+        log1.addMaintenanceOrder(order2);
+        log1.scheduleMaintenance(schedule2);
 
 
 
+        //For loop to print lists with their associated values.
         List<IInspector> inspectors = inspection1.getInspectorList();
         for(IInspector inspector : inspectors) {
             System.out.println("\tInspector ID: \t\t" + inspector.getInspectorID() + "\n");
@@ -275,7 +334,6 @@ public class FacilityClient {
             System.out.println("\tDown Time: \t\t" + maintSchedule.calcDownTimeForFacilityRoom(maintSchedule.getMaintenanceStartDate(), maintSchedule.getMaintenanceEndDate()) + "\n");
             System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
         }
-        //Calculate down time?
 
 
         List<IRequest> requests = log1.getMaintenanceRequestList();
@@ -297,6 +355,10 @@ public class FacilityClient {
 
         System.out.println("\t Total Cost for Maintenance: \t\t" + log1.calcMaintenanceCostForFacility(facility1) + "\n");
         System.out.println("\t Problem Rate: \t\t" + log1.calcProblemRateForFacility(facility1) + "\n");
+        System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
+
+        System.out.println("\t Total Cost for Maintenance: \t\t" + log2.calcMaintenanceCostForFacility(facility1) + "\n");
+        System.out.println("\t Problem Rate: \t\t" + log2.calcProblemRateForFacility(facility1) + "\n");
         System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
 
 
