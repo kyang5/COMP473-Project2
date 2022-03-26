@@ -185,110 +185,112 @@ public class FacilityClient {
             System.out.println("\tUser Title: \t\t" + user.getUserTitle()+ "\n");
             System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
 
-            Inspection inspection1 = (Inspection) context.getBean("inspection");
-            inspection1.setInspectionID(1234);
-            inspection1.setInspectionName("day1");
-
-
-            Inspection inspection2 = (Inspection) context.getBean("inspection");
-            inspection2.setInspectionID(5678);
-            inspection2.setInspectionName("day1");
-
-            Inspector inspector1 = (Inspector) context.getBean("inspector");
-            inspector1.setInspectorID(1234);
-            inspector1.setInspectorTitle("Mister");
-            inspector1.setInspectorFirstName("James");
-            inspector1.setInspectorLastName("Earl");
-
-            MaintenanceLog log1 = (MaintenanceLog) context.getBean("maintenanceLog");
-
-            MaintenanceOrder order1 = (MaintenanceOrder) context.getBean("maintenanceOrder");
-            //FacilityRoom?
-            order1.setOrderID(123456);
-            order1.setOrderDate(new Date(2020, 12, 1, 13, 45));
-            order1.setCost(0.1);
-            order1.setOrderType("new");
-
-
-            MaintenanceRequest request1 = (MaintenanceRequest) context.getBean("maintenanceRequest");
-            //Object
-
-            request1.setRequestID(1234);
-            request1.setProblem("broken");
-            request1.setRequestDate(new Date(2020, 12, 1, 13, 45));
-            request1.setRequestStatus("broken");
-            request1.setRequestorID(12345);
-            request1.setRequestType("fix");
-
-            MaintenanceSchedule schedule1 = (MaintenanceSchedule) context.getBean("maintenanceSchedule");
-
-            schedule1.setScheduleID(1234);
-            schedule1.setMaintenanceEndDate(new Date(2020, 12, 1, 13, 45));
-
-            schedule1.setMaintenanceStartDate(new Date(2020, 12, 1, 13, 45));
-
-            MaintenanceWorker worker1 = (MaintenanceWorker) context.getBean("maintenanceWorker");
-            worker1.setMaintFirstName("earl");
-            worker1.setMaintWorkerID(1234);
-            worker1.setMaintLastName("Young");
-            worker1.setMaintTitle("worker");
-
-            schedule1.setMaintenanceWorker(worker1);
-            request1.setFacilityRoom(room1);
-            order1.setFacilityRoom(room1);
-            inspection1.setFacilityRoom(room1);
-            inspection2.setFacilityRoom(room1);
-            schedule1.setFacilityRoom(room1);
-            schedule1.setMaintenanceWorker(worker1);
-            inspection1.setFacilityRoom(room1);
-            inspection2.setFacilityRoom(room1);
-
-
-            List<IInspector> inspectors = inspection1.getInspectionList();
-            for(IInspector inspector : inspectors) {
-                System.out.println("\tInspector ID: \t\t" + inspector.getInspectorID() + "\n");
-                System.out.println("\tInspector Name: \t\t" + user.getUserFirstName() + " " + user.getUserLastName() + "\n");
-                System.out.println("\tInspector Title: \t\t" + user.getUserTitle() + "\n");
-                System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
-            }
-            List<IOrder> orders = log1.getMaintenanceOrderList();
-            for(IOrder order : orders) {
-                System.out.println("\tOrder Type: \t\t" + order.getOrderType() + "\n");
-                System.out.println("\tOrder ID: \t\t" + order.getOrderID() + "\n");
-                System.out.println("\tOrder Date: \t\t" + order.getOrderDate() + "\n");
-                System.out.println("\tOrder Cost: \t\t" + order.getCost() + "\n");
-                System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
-            }
-
-            List<ISchedule> schedules = log1.getMaintenanceScheduleList();
-            for(ISchedule maintSchedule : schedules) {
-                System.out.println("\tMaintenance Start Date: \t\t" + maintSchedule.getMaintenanceStartDate() + "\n");
-                System.out.println("\tMaintenance End Date: \t\t" + maintSchedule.getMaintenanceEndDate() + "\n");
-                System.out.println("\tSchedule ID: \t\t" + maintSchedule.getScheduleID() + "\n");
-                System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
-            }
-            //Calculate down time?
-
-
-            List<IRequest> requests = log1.getMaintenanceRequestList();
-            for(IRequest request : requests) {
-                System.out.println("\tRequest Type: \t\t" + request.getRequestType() + "\n");
-                System.out.println("\tRequest ID: \t\t" + request.getRequestID() + "\n");
-                System.out.println("\tRequest Date: \t\t" + request.getRequestDate() + "\n");
-                System.out.println("\tRequestor ID: \t\t" + request.getRequestorID() + "\n");
-                System.out.println("\tRequest Status: \t\t" + request.getRequestStatus() + "\n");
-                System.out.println("\tProblem: \t\t" + request.getProblem() + "\n");
-                System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
-            }
-            List<IInspection> inspections = log1.getInspectionList();
-            for(IInspection inspection : inspections) {
-                System.out.println("\tInspection Name: \t\t" + inspection.getInspectionName()+ "\n");
-                System.out.println("\tInspection ID: \t\t" + inspection.getInspectionID() + "\n");
-                System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
-            }
-
-
         }
+
+        Inspection inspection1 = (Inspection) context.getBean("inspection");
+        inspection1.setInspectionID(1234);
+        inspection1.setInspectionName("day1");
+
+
+        Inspection inspection2 = (Inspection) context.getBean("inspection");
+        inspection2.setInspectionID(5678);
+        inspection2.setInspectionName("day1");
+
+        Inspector inspector1 = (Inspector) context.getBean("inspector");
+        inspector1.setInspectorID(1234);
+        inspector1.setInspectorTitle("Mister");
+        inspector1.setInspectorFirstName("James");
+        inspector1.setInspectorLastName("Earl");
+
+        MaintenanceLog log1 = (MaintenanceLog) context.getBean("maintenanceLog");
+
+        MaintenanceOrder order1 = (MaintenanceOrder) context.getBean("maintenanceOrder");
+        //FacilityRoom?
+        order1.setOrderID(123456);
+        order1.setOrderDate(new Date(2020, 12, 1, 13, 45));
+        order1.setCost(0.1);
+        order1.setOrderType("new");
+
+
+        MaintenanceRequest request1 = (MaintenanceRequest) context.getBean("maintenanceRequest");
+        //Object
+
+        request1.setRequestID(1234);
+        request1.setProblem("broken");
+        request1.setRequestDate(new Date(2020, 12, 1, 13, 45));
+        request1.setRequestStatus("broken");
+        request1.setRequestorID(12345);
+        request1.setRequestType("fix");
+
+        MaintenanceSchedule schedule1 = (MaintenanceSchedule) context.getBean("maintenanceSchedule");
+
+        schedule1.setScheduleID(1234);
+        schedule1.setMaintenanceEndDate(new Date(2020, 12, 1, 13, 45));
+
+        schedule1.setMaintenanceStartDate(new Date(2020, 12, 1, 13, 45));
+
+        MaintenanceWorker worker1 = (MaintenanceWorker) context.getBean("maintenanceWorker");
+        worker1.setMaintFirstName("earl");
+        worker1.setMaintWorkerID(1234);
+        worker1.setMaintLastName("Young");
+        worker1.setMaintTitle("worker");
+
+        schedule1.setMaintenanceWorker(worker1);
+        request1.setFacilityRoom(room1);
+        order1.setFacilityRoom(room1);
+        inspection1.setFacilityRoom(room1);
+        inspection2.setFacilityRoom(room1);
+        schedule1.setFacilityRoom(room1);
+        schedule1.setMaintenanceWorker(worker1);
+        inspection1.setFacilityRoom(room1);
+        inspection2.setFacilityRoom(room1);
+
+        inspection1.addInspector(inspector1);
+        inspection2.addInspector(inspector1);
+
+        List<IInspector> inspectors = inspection1.getInspectionList();
+        for(IInspector inspector : inspectors) {
+            System.out.println("\tInspector ID: \t\t" + inspector.getInspectorID() + "\n");
+            System.out.println("\tInspector Name: \t\t" + inspector.getInspectorFirstName() + " " + inspector.getInspectorLastName() + "\n");
+            System.out.println("\tInspector Title: \t\t" + inspector.getInspectorTitle() + "\n");
+            System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
+        }
+        List<IOrder> orders = log1.getMaintenanceOrderList();
+        for(IOrder order : orders) {
+            System.out.println("\tOrder Type: \t\t" + order.getOrderType() + "\n");
+            System.out.println("\tOrder ID: \t\t" + order.getOrderID() + "\n");
+            System.out.println("\tOrder Date: \t\t" + order.getOrderDate() + "\n");
+            System.out.println("\tOrder Cost: \t\t" + order.getCost() + "\n");
+            System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
+        }
+
+        List<ISchedule> schedules = log1.getMaintenanceScheduleList();
+        for(ISchedule maintSchedule : schedules) {
+            System.out.println("\tMaintenance Start Date: \t\t" + maintSchedule.getMaintenanceStartDate() + "\n");
+            System.out.println("\tMaintenance End Date: \t\t" + maintSchedule.getMaintenanceEndDate() + "\n");
+            System.out.println("\tSchedule ID: \t\t" + maintSchedule.getScheduleID() + "\n");
+            System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
+        }
+        //Calculate down time?
+
+
+        List<IRequest> requests = log1.getMaintenanceRequestList();
+        for(IRequest request : requests) {
+            System.out.println("\tRequest Type: \t\t" + request.getRequestType() + "\n");
+            System.out.println("\tRequest ID: \t\t" + request.getRequestID() + "\n");
+            System.out.println("\tRequest Date: \t\t" + request.getRequestDate() + "\n");
+            System.out.println("\tRequestor ID: \t\t" + request.getRequestorID() + "\n");
+            System.out.println("\tRequest Status: \t\t" + request.getRequestStatus() + "\n");
+            System.out.println("\tProblem: \t\t" + request.getProblem() + "\n");
+            System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
+        }
+        List<IInspection> inspections = log1.getInspectionList();
+        for(IInspection inspection : inspections) {
+            System.out.println("\tInspection Name: \t\t" + inspection.getInspectionName()+ "\n");
+            System.out.println("\tInspection ID: \t\t" + inspection.getInspectionID() + "\n");
+            System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
+        }
+
 
 
     }
