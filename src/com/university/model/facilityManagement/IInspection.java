@@ -1,21 +1,20 @@
 package com.university.model.facilityManagement;
 
-import com.university.model.facility.FacilityRoom;
 import com.university.model.facility.IFacilityRoom;
 
 import java.util.List;
 
 public interface IInspection {
-    public IFacilityRoom getFacilityRoom();
-    public void setFacilityRoom(IFacilityRoom facilityRoom);
-    public String getInspectionName();
-    public int getInspectionID();
-    public void setInspectionName(String inspectionName);
-    public void setInspectionID(int inspectionID);
-    public void addInspector(IInspector inspector);
-    public void removeInspector(IInspector inspector);
-    public IInspector getInspector();
-    public void setInspector(IInspector inspector);
-    public List<IInspector> getInspectorList();
-    public void setInspectorList(List <IInspector> inspectorList);
+    IFacilityRoom getFacilityRoom();
+    void setFacilityRoom(IFacilityRoom facilityRoom);
+    String getInspectionName();
+    int getInspectionID();
+    void setInspectionName(String inspectionName);
+    void setInspectionID(int inspectionID);
+    void addInspector(IInspector inspector);
+    void removeInspector(IInspector inspector);
+    IInspector getInspector();
+    void setInspector(IInspector inspector);
+    List<IInspector> getInspectorList();
+    void setInspectorList(List <IInspector> inspectorList);
 }
