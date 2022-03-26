@@ -93,7 +93,6 @@ public class FacilityClient {
 
         // Use instantiation
 
-        // First facility room user
         User user1 = (User) context.getBean("user");
 
         user1.setUserFirstName("Tom");
@@ -101,7 +100,6 @@ public class FacilityClient {
         user1.setUserId(1);
         user1.setUserTitle("Professor");
 
-        // Second facility room user
         User user2 = (User) context.getBean("user");
 
         user2.setUserFirstName("Bob");
@@ -109,7 +107,6 @@ public class FacilityClient {
         user2.setUserId(2);
         user2.setUserTitle("Facility Manager");
 
-        // First facility use typ
         Type type1 = (Type) context.getBean("type");
 
         type1.setTypeId(1);
@@ -118,7 +115,6 @@ public class FacilityClient {
         type1.setUseEndDate(new Date(2020, 12, 22, 10, 15));
         type1.setOccupancy(10);
 
-        // Second facility use type
         Type type2 = (Type) context.getBean("type");
 
         type2.setTypeId(2);
@@ -197,8 +193,7 @@ public class FacilityClient {
         System.out.println("\tRoom 1 is in use for: \t\t" + schedule.timeInterval(type1) + " seconds" + "\n");
         System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
 
-        }
-
+        /*************************************************************************************/
         // Facility Maintenance instantiation
         Inspection inspection1 = (Inspection) context.getBean("inspection");
         inspection1.setInspectionID(1234);
@@ -218,15 +213,14 @@ public class FacilityClient {
         MaintenanceLog log1 = (MaintenanceLog) context.getBean("maintenanceLog");
 
         MaintenanceOrder order1 = (MaintenanceOrder) context.getBean("maintenanceOrder");
-        //FacilityRoom?
         order1.setOrderID(123456);
         order1.setOrderDate(new Date(2020, 12, 1, 13, 45));
         order1.setCost(0.1);
         order1.setOrderType("new");
+        order1.setFacilityRoom(room1);
 
 
         MaintenanceRequest request1 = (MaintenanceRequest) context.getBean("maintenanceRequest");
-        //Object
 
         request1.setRequestID(1234);
         request1.setProblem("broken");
@@ -262,8 +256,7 @@ public class FacilityClient {
         log1.addMaintenanceOrder(order1);
         log1.scheduleMaintenance(schedule1);
 
-
-
+        // Print out maintenance log info
         List<IInspector> inspectors = inspection1.getInspectorList();
         for(IInspector inspector : inspectors) {
             System.out.println("\tInspector ID: \t\t" + inspector.getInspectorID() + "\n");
@@ -271,6 +264,7 @@ public class FacilityClient {
             System.out.println("\tInspector Title: \t\t" + inspector.getInspectorTitle() + "\n");
             System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
         }
+
         List<IOrder> orders = log1.getMaintenanceOrderList();
         for(IOrder order : orders) {
             System.out.println("\tOrder Type: \t\t" + order.getOrderType() + "\n");
@@ -288,8 +282,6 @@ public class FacilityClient {
             System.out.println("\tDown Time: \t\t" + maintSchedule.calcDownTimeForFacilityRoom(maintSchedule.getMaintenanceStartDate(), maintSchedule.getMaintenanceEndDate()) + "\n");
             System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
         }
-        //Calculate down time?
-
 
         List<IRequest> requests = log1.getMaintenanceRequestList();
         for(IRequest request : requests) {
@@ -311,9 +303,6 @@ public class FacilityClient {
         System.out.println("\t Total Cost for Maintenance: \t\t" + log1.calcMaintenanceCostForFacility(facility1) + "\n");
         System.out.println("\t Problem Rate: \t\t" + log1.calcProblemRateForFacility(facility1) + "\n");
         System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
-
-
-
 
     }
 }
