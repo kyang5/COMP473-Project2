@@ -24,7 +24,8 @@
     </bean>
 
     <bean id="facilityRoom" class="com.university.model.facility.FacilityRoom" scope="prototype"/>
-
+    <bean id="inspector" class="com.university.model.facilityManagement.Inspector" scope="prototype"/>
+    <bean id="maintenanceWorker" class="com.university.model.facilityManagement.MaintenanceWorker" scope="prototype"/>
     <bean id="facilityManager" class="com.university.model.facility.FacilityManager" scope="prototype">
         <!-- Inject the FacilityLocation List -->
         <property name="listFacilities">
