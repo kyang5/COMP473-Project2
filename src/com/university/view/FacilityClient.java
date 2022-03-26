@@ -249,6 +249,8 @@ public class FacilityClient {
         log1.addMaintenanceOrder(order1);
         log1.scheduleMaintenance(schedule1);
 
+
+
         List<IInspector> inspectors = inspection1.getInspectorList();
         for(IInspector inspector : inspectors) {
             System.out.println("\tInspector ID: \t\t" + inspector.getInspectorID() + "\n");
@@ -270,6 +272,7 @@ public class FacilityClient {
             System.out.println("\tMaintenance Start Date: \t\t" + maintSchedule.getMaintenanceStartDate() + "\n");
             System.out.println("\tMaintenance End Date: \t\t" + maintSchedule.getMaintenanceEndDate() + "\n");
             System.out.println("\tSchedule ID: \t\t" + maintSchedule.getScheduleID() + "\n");
+            System.out.println("\tDown Time: \t\t" + maintSchedule.calcDownTimeForFacilityRoom(maintSchedule.getMaintenanceStartDate(), maintSchedule.getMaintenanceEndDate()) + "\n");
             System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
         }
         //Calculate down time?
@@ -291,6 +294,11 @@ public class FacilityClient {
             System.out.println("\tInspection ID: \t\t" + inspection.getInspectionID() + "\n");
             System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
         }
+
+        System.out.println("\t Total Cost for Maintenance: \t\t" + log1.calcMaintenanceCostForFacility(facility1) + "\n");
+        System.out.println("\t Problem Rate: \t\t" + log1.calcProblemRateForFacility(facility1) + "\n");
+        System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
+
 
 
 

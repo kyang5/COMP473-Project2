@@ -114,7 +114,7 @@
             </list>
             -->
         </property>
-        <property name="maintenanceSchedule" ref="maintenanceSchedule" />
+
     </bean>
     <bean id="maintenanceOrder" class="com.university.model.facilityManagement.MaintenanceOrder" scope="prototype">
         <property name="facilityRoom" ref="facilityRoom" />

@@ -10,7 +10,8 @@ public class MaintenanceLog implements ILog {
     private List<ISchedule> scheduleList = new ArrayList<>();
     private List<IRequest> requestList = new ArrayList<>();
     private List<IInspection> inspectionList = new ArrayList<>();
-    private ISchedule maintenanceSchedule;
+    //Deleted the object for maintenance schedule because we never invoke it.
+    //private ISchedule maintenanceSchedule;
 
     public int getInspectionLog(List<Inspection> inspectionList) {
 
