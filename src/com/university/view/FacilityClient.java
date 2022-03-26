@@ -10,7 +10,6 @@ import com.university.model.use.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,11 +17,7 @@ public class FacilityClient {
     public static void main(String[] args) throws Exception{
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/app-context.xml");
         System.out.println("***************** Application Context instantiated! ******************");
-        //FacilityManagement instantiation
-
-
-
-                // Facility instantiation
+        // Facility instantiation
         FacilityLocation facility1 = (FacilityLocation) context.getBean("facilityLocation");
 
         facility1.setFacilityId(1);
@@ -41,7 +36,7 @@ public class FacilityClient {
         facility2.setCity("Chicago");
         facility2.setZipcode(123456);
 
-
+        // Facility room instantiation
         FacilityRoom room1 = (FacilityRoom) context.getBean("facilityRoom");
 
         room1.setFacilityRoomId(1);
@@ -74,6 +69,7 @@ public class FacilityClient {
         room4.setCapacity(3);
         room4.setInUse(false);
 
+        //FacilityManagement instantiation
         FacilityManager manager = (FacilityManager) context.getBean("facilityManager");
 
         manager.setManagerId(1);
@@ -95,8 +91,6 @@ public class FacilityClient {
         /*************************************************************************************/
 
         // Use instantiation
-
-        // First facility room user
         User user1 = (User) context.getBean("user");
 
         user1.setUserFirstName("Tom");
@@ -104,7 +98,6 @@ public class FacilityClient {
         user1.setUserId(1);
         user1.setUserTitle("Professor");
 
-        // Second facility room user
         User user2 = (User) context.getBean("user");
 
         user2.setUserFirstName("Bob");
@@ -112,7 +105,8 @@ public class FacilityClient {
         user2.setUserId(2);
         user2.setUserTitle("Facility Manager");
 
-        // First facility use typ
+
+        // Type instantiation
         Type type1 = (Type) context.getBean("type");
 
         type1.setTypeId(1);
@@ -121,12 +115,11 @@ public class FacilityClient {
         type1.setUseEndDate(new Date(2020, 12, 22, 10, 15));
         type1.setOccupancy(10);
 
-        // Second facility use type
         Type type2 = (Type) context.getBean("type");
 
         type2.setTypeId(1);
         type2.setFacilityUseType("Lab");
-        type2.setUseStartDate(new Date(2020, 11, 1, 10, 00));
+        type2.setUseStartDate(new Date(2020, 11, 1, 10, 10));
         type2.setUseEndDate(new Date(2020, 11, 1, 10, 45));
         type2.setOccupancy(1);
 
@@ -187,10 +180,10 @@ public class FacilityClient {
 
         }
 
+        // Facility Maintenance instantiation
         Inspection inspection1 = (Inspection) context.getBean("inspection");
         inspection1.setInspectionID(1234);
         inspection1.setInspectionName("day1");
-
 
         Inspection inspection2 = (Inspection) context.getBean("inspection");
         inspection2.setInspectionID(5678);
@@ -205,15 +198,14 @@ public class FacilityClient {
         MaintenanceLog log1 = (MaintenanceLog) context.getBean("maintenanceLog");
 
         MaintenanceOrder order1 = (MaintenanceOrder) context.getBean("maintenanceOrder");
-        //FacilityRoom?
         order1.setOrderID(123456);
         order1.setOrderDate(new Date(2020, 12, 1, 13, 45));
         order1.setCost(0.1);
         order1.setOrderType("new");
+        order1.setFacilityRoom(room1);
 
 
         MaintenanceRequest request1 = (MaintenanceRequest) context.getBean("maintenanceRequest");
-        //Object
 
         request1.setRequestID(1234);
         request1.setProblem("broken");
@@ -249,8 +241,7 @@ public class FacilityClient {
         log1.addMaintenanceOrder(order1);
         log1.scheduleMaintenance(schedule1);
 
-
-
+        // Print Maintenance Log info
         List<IInspector> inspectors = inspection1.getInspectorList();
         for(IInspector inspector : inspectors) {
             System.out.println("\tInspector ID: \t\t" + inspector.getInspectorID() + "\n");
@@ -275,8 +266,6 @@ public class FacilityClient {
             System.out.println("\tDown Time: \t\t" + maintSchedule.calcDownTimeForFacilityRoom(maintSchedule.getMaintenanceStartDate(), maintSchedule.getMaintenanceEndDate()) + "\n");
             System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
         }
-        //Calculate down time?
-
 
         List<IRequest> requests = log1.getMaintenanceRequestList();
         for(IRequest request : requests) {

@@ -1,6 +1,5 @@
 package com.university.model.use;
 
-import com.university.model.facility.IFacilityLocation;
 import com.university.model.facility.IFacilityRoom;
 import java.util.Date;
 

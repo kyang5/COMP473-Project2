@@ -1,22 +1,17 @@
 package com.university.model.use;
 
-import com.university.model.facility.IFacilityLocation;
 import com.university.model.facility.IFacilityRoom;
 
 import java.util.*;
 
 public class UseSchedule implements IUseSchedule{
     private int availableCapacity;
-    private double usageRate;
     // date and time entered at the same time in same variable
     private List<IType> listActualUsage = new ArrayList<>();
     private List<IUser> listUsers = new ArrayList<>();
 
     public boolean isAtCapacity() {
-        if (availableCapacity == 0) {
-            return true;
-        } else {
-            return false;}
+        return availableCapacity == 0;
     }
 
     public int requestAvailableCapacity(IFacilityRoom room, IType facilityUseType) {
@@ -68,7 +63,6 @@ public class UseSchedule implements IUseSchedule{
     public long timeInterval(IType facilityUseType) {
         long end = facilityUseType.getUseEndDate().getTime();
         long start = facilityUseType.getUseStartDate().getTime();
-        long duration = end - start; //time duration in milliseconds
-        return duration;
+        return end - start;
     }
 }
