@@ -87,6 +87,7 @@ public class FacilityLocation implements IFacilityLocation{
     }
 
     // total number of rooms in a facility out of total number of rooms in a facility being used
+    // same as calcUseRate()
     public double calcFacilityUsage(List<IFacilityRoom> listFacilityRooms) {
         double totalNumberOfRooms = listFacilityRooms.size();
         double totalRoomsInUse = 0;
