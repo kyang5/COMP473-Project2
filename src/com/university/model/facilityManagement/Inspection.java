@@ -50,9 +50,10 @@ public class Inspection implements IInspection {
         this.inspector = inspector;
     }
 
-    public List<IInspector> getInspectionList(){
+    public List<IInspector> getInspectorList(){
         return inspectorList;
     }
+    public void setInspectorList(List <IInspector> inspectorList){ this.inspector = inspector;}
 
 
 

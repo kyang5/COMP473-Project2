@@ -16,5 +16,6 @@ public interface IInspection {
     public void removeInspector(IInspector inspector);
     public IInspector getInspector();
     public void setInspector(IInspector inspector);
-    public List<IInspector> getInspectionList();
+    public List<IInspector> getInspectorList();
+    public void setInspectorList(List <IInspector> inspectorList);
 }

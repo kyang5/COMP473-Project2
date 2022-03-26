@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85ff70f2-547a-4441-b7b1-334e281b88bb" name="Changes" comment="Made several additions to the workplace xml file's beans.">
+    <list default="true" id="85ff70f2-547a-4441-b7b1-334e281b88bb" name="Changes" comment="Made several corrections in the Facility Client with a loop and the calls for inspector.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IInspection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IInspection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/Inspection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/Inspection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/MaintenanceLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/MaintenanceLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/university/view/FacilityClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/view/FacilityClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MaintenanceLogTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MaintenanceLogTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648311621604</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Made several corrections in the Facility Client with a loop and the calls for inspector.">
+      <created>1648313509298</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1648313509299</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,6 +111,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed Client for Maintenance." />
     <MESSAGE value="Made several additions to the workplace xml file's beans." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made several additions to the workplace xml file's beans." />
+    <MESSAGE value="Made several corrections in the Facility Client with a loop and the calls for inspector." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made several corrections in the Facility Client with a loop and the calls for inspector." />
   </component>
 </project>

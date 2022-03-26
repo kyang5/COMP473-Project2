@@ -275,7 +275,7 @@ class MaintenanceLogTest {
         inspection.setInspector(inspector);
         inspection.setFacilityRoom(facilityRoom1);
         inspection.addInspector(inspector);
-        inspection.getInspectionList();
+        inspection.getInspectorList();
 
         MaintenanceRequest request = new MaintenanceRequest();
         request.setRequestType("Plumbing");
@@ -367,7 +367,7 @@ class MaintenanceLogTest {
         inspection.setInspector(inspector);
         inspection.setFacilityRoom(facilityRoom1);
         inspection.addInspector(inspector);
-        inspection.getInspectionList();
+        inspection.getInspectorList();
 
         MaintenanceRequest request = new MaintenanceRequest();
         request.setRequestType("Plumbing");

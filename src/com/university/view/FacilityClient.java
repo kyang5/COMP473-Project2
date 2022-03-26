@@ -241,14 +241,15 @@ public class FacilityClient {
         inspection1.setFacilityRoom(room1);
         inspection2.setFacilityRoom(room1);
         schedule1.setFacilityRoom(room1);
-        schedule1.setMaintenanceWorker(worker1);
-        inspection1.setFacilityRoom(room1);
-        inspection2.setFacilityRoom(room1);
 
         inspection1.addInspector(inspector1);
         inspection2.addInspector(inspector1);
+        log1.addInspection(inspection1);
+        log1.addMaintenanceRequest(request1);
+        log1.addMaintenanceOrder(order1);
+        log1.scheduleMaintenance(schedule1);
 
-        List<IInspector> inspectors = inspection1.getInspectionList();
+        List<IInspector> inspectors = inspection1.getInspectorList();
         for(IInspector inspector : inspectors) {
             System.out.println("\tInspector ID: \t\t" + inspector.getInspectorID() + "\n");
             System.out.println("\tInspector Name: \t\t" + inspector.getInspectorFirstName() + " " + inspector.getInspectorLastName() + "\n");

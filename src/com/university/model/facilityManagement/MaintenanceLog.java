@@ -12,12 +12,13 @@ public class MaintenanceLog implements ILog {
     private List<IInspection> inspectionList = new ArrayList<>();
     private ISchedule maintenanceSchedule;
 
-    public int getInspectionLog() {
+    public int getInspectionLog(List<Inspection> inspectionList) {
 
         inspectionLog = inspectionList.size();
 
         return inspectionLog;
     }
+
     public List<IInspection> getInspectionList() {
         return inspectionList;
     }

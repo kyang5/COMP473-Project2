@@ -6,7 +6,7 @@ import com.university.model.facility.IFacilityLocation;
 import java.util.List;
 
 public interface ILog {
-    public int getInspectionLog();
+    public int getInspectionLog(List<Inspection> inspectionList);
     public List<IInspection> getInspectionList();
     public void setInspectionList(List<IInspection> inspectionList);
     public void addInspection(IInspection inspection);
