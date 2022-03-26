@@ -53,7 +53,7 @@ public class Inspection implements IInspection {
     public List<IInspector> getInspectorList(){
         return inspectorList;
     }
-    public void setInspectorList(List <IInspector> inspectorList){ this.inspector = inspector;}
+    public void setInspectorList(List <IInspector> inspectorList){ this.inspectorList = inspectorList;}
 
 
 
