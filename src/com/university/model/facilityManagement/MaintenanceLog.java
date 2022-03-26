@@ -5,14 +5,19 @@ import com.university.model.facility.IFacilityRoom;
 
 import java.util.*;
 public class MaintenanceLog implements ILog {
-    private List<IOrder> maintenanceList = new ArrayList<>();
+    private int inspectionLog;
+    private List<IOrder> maintenanceList = new ArrayList<IOrder>();
     private List<ISchedule> scheduleList = new ArrayList<>();
     private List<IRequest> requestList = new ArrayList<>();
     private List<IInspection> inspectionList = new ArrayList<>();
+    //Deleted the object for maintenance schedule because we never invoke it.
+    //private ISchedule maintenanceSchedule;
 
     public int getInspectionLog(List<Inspection> inspectionList) {
 
-        return inspectionList.size();
+        inspectionLog = inspectionList.size();
+
+        return inspectionLog;
     }
 
     public List<IInspection> getInspectionList() {

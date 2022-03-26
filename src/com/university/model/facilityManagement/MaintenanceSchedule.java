@@ -1,10 +1,11 @@
 package com.university.model.facilityManagement;
-
+import com.university.model.facility.FacilityRoom;
 import com.university.model.facility.IFacilityRoom;
 
 import java.util.*;
 
 public class MaintenanceSchedule implements ISchedule {
+    //private Date maintenanceDate;
     private Date maintenanceStartDate;
     private Date maintenanceEndDate;
     private int scheduleID;
@@ -48,7 +49,8 @@ public class MaintenanceSchedule implements ISchedule {
     public long calcDownTimeForFacilityRoom(Date maintenanceStartDate, Date maintenanceEndDate){
         long startDate = maintenanceStartDate.getTime();
         long endDate = maintenanceEndDate.getTime();
-        return endDate - startDate;
+        long downTime = endDate - startDate;
+        return downTime;
     }
 }
 

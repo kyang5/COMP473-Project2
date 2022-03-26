@@ -1,12 +1,12 @@
 package com.university.model.facilityManagement;
 
 public interface IInspector {
-    String getInspectorFirstName();
-    String getInspectorLastName();
-    int getInspectorID();
-    String getInspectorTitle();
-    void setInspectorFirstName(String firstName);
-    void setInspectorLastName(String lastName);
-    void setInspectorID(int inspectorID);
-    void setInspectorTitle(String title);
+    public String getInspectorFirstName();
+    public String getInspectorLastName();
+    public int getInspectorID();
+    public String getInspectorTitle();
+    public void setInspectorFirstName(String firstName);
+    public void setInspectorLastName(String lastName);
+    public void setInspectorID(int inspectorID);
+    public void setInspectorTitle(String title);
 }

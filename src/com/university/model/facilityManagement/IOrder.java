@@ -5,14 +5,14 @@ import com.university.model.facility.IFacilityRoom;
 import java.util.Date;
 
 public interface IOrder {
-    double getCost();
-    void setCost(double cost);
-    String getOrderType();
-    int getOrderID();
-    Date getOrderDate();
-    void setOrderType(String orderType);
-    void setOrderID(int orderID);
-    void setOrderDate(Date orderDate);
-    IFacilityRoom getFacilityRoom();
-    void setFacilityRoom(IFacilityRoom facilityRoom);
+    public double getCost();
+    public void setCost(double cost);
+    public String getOrderType();
+    public int getOrderID();
+    public Date getOrderDate();
+    public void setOrderType(String orderType);
+    public void setOrderID(int orderID);
+    public void setOrderDate(Date orderDate);
+    public IFacilityRoom getFacilityRoom();
+    public void setFacilityRoom(IFacilityRoom facilityRoom);
 }

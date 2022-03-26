@@ -4,8 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85ff70f2-547a-4441-b7b1-334e281b88bb" name="Changes" comment="Amended">
+    <list default="true" id="85ff70f2-547a-4441-b7b1-334e281b88bb" name="Changes" comment="Made several necessary changes to the Test and respective classes.">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP473-Project2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/COMP473-Project2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IInspection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IInspection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IInspector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IInspector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/ILog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/ILog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/ISchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/ISchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/MaintenanceLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/MaintenanceLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/MaintenanceSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/MaintenanceSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/use/IType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/use/IType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/use/IUseSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/use/IUseSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/use/IUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/use/IUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/use/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/use/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/use/UseSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/use/UseSchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/university/view/FacilityClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/view/FacilityClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,14 +116,7 @@
       <option name="project" value="LOCAL" />
       <updated>1648315223686</updated>
     </task>
-    <task id="LOCAL-00005" summary="Amended">
-      <created>1648322876276</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1648322876276</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,7 +135,6 @@
     <MESSAGE value="Made several additions to the workplace xml file's beans." />
     <MESSAGE value="Made several corrections in the Facility Client with a loop and the calls for inspector." />
     <MESSAGE value="Made several necessary changes to the Test and respective classes." />
-    <MESSAGE value="Amended" />
-    <option name="LAST_COMMIT_MESSAGE" value="Amended" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made several necessary changes to the Test and respective classes." />
   </component>
 </project>
