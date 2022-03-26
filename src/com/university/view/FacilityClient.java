@@ -3,10 +3,7 @@ package com.university.view;
 
 import com.university.model.facility.*;
 import com.university.model.facilityManagement.*;
-import com.university.model.use.IUser;
-import com.university.model.use.Type;
-import com.university.model.use.UseSchedule;
-import com.university.model.use.User;
+import com.university.model.use.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -124,8 +121,8 @@ public class FacilityClient {
         // Second facility use type
         Type type2 = (Type) context.getBean("type");
 
-        type2.setTypeId(1);
-        type2.setFacilityUseType("Lab");
+        type2.setTypeId(2);
+        type2.setFacilityUseType("Office");
         type2.setUseStartDate(new Date(2020, 11, 1, 10, 00));
         type2.setUseEndDate(new Date(2020, 11, 1, 10, 45));
         type2.setOccupancy(1);
@@ -183,10 +180,26 @@ public class FacilityClient {
             System.out.println("\tUser ID: \t\t" + user.getUserId()+ "\n");
             System.out.println("\tUser Name: \t\t" + user.getUserFirstName() + " " + user.getUserLastName()+ "\n");
             System.out.println("\tUser Title: \t\t" + user.getUserTitle()+ "\n");
+            System.out.println("\n" + "+++++++++++++++++++++++++++++++++");
+        }
+
+        List<IType> types = schedule.getListActualUsage();
+        for (IType type: types) {
+            System.out.println("\t\tType ID: \t\t" + type.getTypeId()+ "\n");
+            System.out.println("\t\tUse: \t\t" + type.getFacilityUseType() + "\n");
+            System.out.println("\t\tUse Start Date: \t\t" + type.getUseStartDate() + "\n");
+            System.out.println("\t\tUse End Date: \t\t" + type.getUseEndDate() + "\n");
+            System.out.println("\t\tOccupancy: \t\t" + type.getOccupancy() + "\n");
             System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
+        }
+
+        System.out.println("\tAvailable Capacity for use type 1: \t\t" + schedule.requestAvailableCapacity(room1, type1) + "\n");
+        System.out.println("\tRoom 1 is in use for: \t\t" + schedule.timeInterval(type1) + " seconds" + "\n");
+        System.out.println("\n\t" + "+++++++++++++++++++++++++++++++++");
 
         }
 
+        // Facility Maintenance instantiation
         Inspection inspection1 = (Inspection) context.getBean("inspection");
         inspection1.setInspectionID(1234);
         inspection1.setInspectionName("day1");

@@ -4,8 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85ff70f2-547a-4441-b7b1-334e281b88bb" name="Changes" comment="Resolved issues with Facility Client.">
+    <list default="true" id="85ff70f2-547a-4441-b7b1-334e281b88bb" name="Changes" comment="Made several necessary changes to the Test and respective classes.">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP473-Project2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/COMP473-Project2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IInspection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IInspection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IInspector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IInspector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/ILog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/ILog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/ISchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/ISchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/IWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/MaintenanceLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/MaintenanceLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/facilityManagement/MaintenanceSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/facilityManagement/MaintenanceSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/use/IType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/use/IType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/use/IUseSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/use/IUseSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/use/IUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/use/IUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/use/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/use/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/university/model/use/UseSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/model/use/UseSchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/university/view/FacilityClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/university/view/FacilityClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +39,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="26j1rST9nEBLR4CZSiQGo6MoyA8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,6 +54,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../spring-5.3.16-dist/spring-framework-5.3.16/libs" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -96,14 +116,7 @@
       <option name="project" value="LOCAL" />
       <updated>1648315223686</updated>
     </task>
-    <task id="LOCAL-00005" summary="Resolved issues with Facility Client.">
-      <created>1648317944250</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1648317944250</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,14 +129,12 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed Client for Maintenance." />
     <MESSAGE value="Made several additions to the workplace xml file's beans." />
     <MESSAGE value="Made several corrections in the Facility Client with a loop and the calls for inspector." />
     <MESSAGE value="Made several necessary changes to the Test and respective classes." />
-    <MESSAGE value="Resolved issues with Facility Client." />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolved issues with Facility Client." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made several necessary changes to the Test and respective classes." />
   </component>
 </project>
