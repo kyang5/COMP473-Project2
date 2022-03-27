@@ -8,10 +8,10 @@ For clarity: getListFacilityRooms() and getListFacilities() retrieves the inform
 
              addFacilityRoom() performs an identical purpose as addFacilityDetail().
 
-             Similarly speaking addFacilityRoom() performs an identical purpose as assignFacilityToUse().
+             Similarly speaking assignUserToFacilityRoom() performs an identical purpose as assignFacilityToUse().
 
              Lastly, getMaintenanceRequestList()
-             (line 74) in the MaintenanceLog class under faclityManagement fulfills
+             (line 67) in the MaintenanceLog class under faclityManagement fulfills
              a similar fuction as listFacilityProblems().
 
 
